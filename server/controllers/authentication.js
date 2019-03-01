@@ -1,6 +1,7 @@
 const config = require('../config');
 const jwt = require('jwt-simple');
 const User = require('../database/queries/user');
+// const Employee = require('../database/queries')
 
 function tokenForUser(user) {
     const timestamp = new Date().getTime();
@@ -8,7 +9,7 @@ function tokenForUser(user) {
 }
 
 exports.getEmployee = function(req, res, next) {
-
+    res.send('hello')
 }
 
 exports.signin = function(req, res, next) {

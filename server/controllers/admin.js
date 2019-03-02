@@ -10,5 +10,6 @@ exports.getAllEmployees = function(req, res, next) {
 }
 
 exports.deleteEmployee = function(req, res, next) {
-
+    Admin.deleteEmployee()
+        .then()
 }

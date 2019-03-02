@@ -8,10 +8,6 @@ function tokenForUser(user) {
     return jwt.encode({ sub: user.insertId, iat: timestamp }, config.secret);
 }
 
-exports.getEmployee = function(req, res, next) {
-    res.send('hello')
-}
-
 exports.signin = function(req, res, next) {
     // User has already had their email and password authorized, only a token is required 
 

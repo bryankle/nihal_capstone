@@ -10,5 +10,25 @@ module.exports =  {
           resolve(data);
       })
     })
+  },
+  deleteEmployee: function() {
+    return new Promise(function*(resolve, reject) {
+      const params = [email];
+      mysql.pool.query('DELETE * FROM user WHERE user_id=?', params, 
+      function(err, data) {
+        if (err) reject(err);
+        resolve(data);
+      })
+    })
   }
 }
+
+
+// return new Promise(function(resolve, reject) {
+//   const params = [email];
+//   mysql.pool.query('SELECT * FROM user WHERE email = ?', params,
+//   function(err, data) {
+//       if (err) reject(err);
+//       resolve(data);
+//   })
+// })

@@ -7,7 +7,7 @@ export default function(state = INITIAL_STATE, action) {
     console.log('reducers admin actions', action);
     switch(action.type) {
         case GET_EMPLOYEE:
-            return { ...state, users: [...action.users], hello: 'world' };
+            return { ...state, users: [...action.users] };
         default:
             return state;
     }

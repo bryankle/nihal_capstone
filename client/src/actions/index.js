@@ -1,13 +1,16 @@
 import axios from 'axios';
-import { AUTH_USER, AUTH_ERROR } from './types';
+import { AUTH_USER, AUTH_ERROR, GET_EMPLOYEE, ADMIN_ERROR } from './types';
 import { ROOT_URL } from '../constants';
 
 export const getEmployee = (callback) => async dispatch => {
+    console.log('getEmployee running from actions');
     try {
-
+        const response = await axios.get(`${ROOT_URL}/employee`);
+        console.log('response', response);
+        dispatch({ type: GET_EMPLOYEE, users: response.data });
     }
     catch(e) {
-
+        dispatch({ type: ADMIN_ERROR, payload: 'Unable to retrieve users' });
     }
 }
 

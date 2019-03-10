@@ -33,6 +33,7 @@ exports.getemployees = function(req, res) {
 };
 
 exports.getawardsSent = function(req, res) {
+  console.log("field", req.body);
   const user_id = req.query.user_id;
   console.log("my user id", user_id);
   Business.getAwardsSent(user_id)

@@ -147,6 +147,78 @@ class BusinessInformation extends Component {
                 </Link>
               </ButtonToolbar>
             </div>
+            <div>
+              <ButtonToolbar>
+                <Link to="/bustype">
+                  <Button
+                    as="a"
+                    inverted={!true}
+                    primary={true}
+                    style={{
+                      marginLeft: "0.5em",
+                      marginBottom: ".5em",
+                      width: "300px"
+                    }}
+                  >
+                    Award Type Totals
+                  </Button>
+                </Link>
+              </ButtonToolbar>
+            </div>
+            <div>
+              <ButtonToolbar>
+                <Link to="/busmonth">
+                  <Button
+                    as="a"
+                    inverted={!true}
+                    primary={true}
+                    style={{
+                      marginLeft: "0.5em",
+                      marginBottom: ".5em",
+                      width: "300px"
+                    }}
+                  >
+                    Awards Issued by Month
+                  </Button>
+                </Link>
+              </ButtonToolbar>
+            </div>
+            <div>
+              <ButtonToolbar>
+                <Link to="/busrange">
+                  <Button
+                    as="a"
+                    inverted={!true}
+                    primary={true}
+                    style={{
+                      marginLeft: "0.5em",
+                      marginBottom: ".5em",
+                      width: "300px"
+                    }}
+                  >
+                    Awards Issued by Range of Dates
+                  </Button>
+                </Link>
+              </ButtonToolbar>
+            </div>
+            <div>
+              <ButtonToolbar>
+                <Link to="/bustotal">
+                  <Button
+                    as="a"
+                    inverted={!true}
+                    primary={true}
+                    style={{
+                      marginLeft: "0.5em",
+                      marginBottom: ".5em",
+                      width: "300px"
+                    }}
+                  >
+                    Total Awards Received
+                  </Button>
+                </Link>
+              </ButtonToolbar>
+            </div>
             {/*
             <Form size="large" onSubmit={handleSubmit(this.onSubmit)}>
               <Segment stacked>

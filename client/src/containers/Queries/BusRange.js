@@ -19,17 +19,17 @@ import requireAdmin from "../requireAdmin";
 const checkboxOptions = [
   {
     value: "1",
-    text: "East",
+    text: "Employee of the Day",
     key: "1"
   },
   {
     value: "2",
-    text: "Central",
+    text: "Employee of the Week",
     key: "2"
   },
   {
     value: "3",
-    text: "West",
+    text: "Employee of the Century",
     key: "3"
   }
 ];
@@ -46,7 +46,7 @@ const adminOptions = [
   }
 ];
 
-class BusReceived extends Component {
+class BusRange extends Component {
   constructor() {
     super();
     this.state = {
@@ -77,7 +77,7 @@ class BusReceived extends Component {
 
   onSubmit = formProps => {
     console.log("look at the formprops", formProps);
-    this.props.getAwardsReceived(formProps, () => {
+    this.props.getAwardRange(formProps, () => {
       // TODO: Determine page to redirect to after admin adds user
       this.props.history.push("/");
     });
@@ -106,7 +106,7 @@ class BusReceived extends Component {
           {" "}
           <Grid.Column style={{ maxWidth: 450 }}>
             <Header as="h2" color="teal" textAlign="center">
-              Awards Received by User
+              Award Type Issued by Range of Dates
             </Header>
 
             <Form size="large" onSubmit={handleSubmit(this.onSubmit)}>
@@ -139,14 +139,14 @@ class BusReceived extends Component {
                   type="text"
                   placeholder="Email"
                 />
-            */}
+               
                 <Field
                   name="recipientID"
                   component={semanticFormField}
                   as={Form.Dropdown}
                   options={this.state.employees}
                   type="text"
-                  placeholder="Choose Award Recipient"
+                  placeholder="Choose Award Winner"
                 />
                 {/*
                 <Field
@@ -158,8 +158,9 @@ class BusReceived extends Component {
                   type="password"
                   placeholder="Password"
                 />
+                  */}
                 <Field
-                  name="region_id"
+                  name="awardtypeID"
                   component={semanticFormField}
                   as={Form.Dropdown}
                   //icon="lock"
@@ -167,8 +168,27 @@ class BusReceived extends Component {
                   placeholder="My Dropdown"
                   iconPosition="left"
                   type="text"
-                  placeholder="Region"
+                  placeholder="Award Type"
                 />{" "}
+                Start Date
+                <Field
+                  name="beginning"
+                  component={semanticFormField}
+                  as={Form.Input}
+                  icon="calendar"
+                  iconPosition="left"
+                  type="date"
+                />
+                End Date
+                <Field
+                  name="end"
+                  component={semanticFormField}
+                  as={Form.Input}
+                  icon="calendar"
+                  iconPosition="left"
+                  type="date"
+                />
+                {/*}
                 <Field
                   name="admin"
                   component={semanticFormField}
@@ -205,4 +225,4 @@ export default compose(
   ),
   reduxForm({ form: "query" }),
   requireAdmin
-)(BusReceived);
+)(BusRange);

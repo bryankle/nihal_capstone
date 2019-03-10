@@ -19,18 +19,63 @@ import requireAdmin from "../requireAdmin";
 const checkboxOptions = [
   {
     value: "1",
-    text: "East",
+    text: "January",
     key: "1"
   },
   {
     value: "2",
-    text: "Central",
+    text: "February",
     key: "2"
   },
   {
     value: "3",
-    text: "West",
+    text: "March",
     key: "3"
+  },
+  {
+    value: "4",
+    text: "April",
+    key: "4"
+  },
+  {
+    value: "5",
+    text: "May",
+    key: "5"
+  },
+  {
+    value: "6",
+    text: "June",
+    key: "6"
+  },
+  {
+    value: "7",
+    text: "July",
+    key: "7"
+  },
+  {
+    value: "8",
+    text: "August",
+    key: "8"
+  },
+  {
+    value: "9",
+    text: "September",
+    key: "9"
+  },
+  {
+    value: "10",
+    text: "October",
+    key: "10"
+  },
+  {
+    value: "11",
+    text: "November",
+    key: "11"
+  },
+  {
+    value: "12",
+    text: "December",
+    key: "12"
   }
 ];
 const adminOptions = [
@@ -46,7 +91,7 @@ const adminOptions = [
   }
 ];
 
-class BusReceived extends Component {
+class BusMonth extends Component {
   constructor() {
     super();
     this.state = {
@@ -77,7 +122,7 @@ class BusReceived extends Component {
 
   onSubmit = formProps => {
     console.log("look at the formprops", formProps);
-    this.props.getAwardsReceived(formProps, () => {
+    this.props.getAwardMonth(formProps, () => {
       // TODO: Determine page to redirect to after admin adds user
       this.props.history.push("/");
     });
@@ -106,7 +151,7 @@ class BusReceived extends Component {
           {" "}
           <Grid.Column style={{ maxWidth: 450 }}>
             <Header as="h2" color="teal" textAlign="center">
-              Awards Received by User
+              Awards Issued By Type
             </Header>
 
             <Form size="large" onSubmit={handleSubmit(this.onSubmit)}>
@@ -139,7 +184,7 @@ class BusReceived extends Component {
                   type="text"
                   placeholder="Email"
                 />
-            */}
+           
                 <Field
                   name="recipientID"
                   component={semanticFormField}
@@ -158,8 +203,9 @@ class BusReceived extends Component {
                   type="password"
                   placeholder="Password"
                 />
+                 */}
                 <Field
-                  name="region_id"
+                  name="monthID"
                   component={semanticFormField}
                   as={Form.Dropdown}
                   //icon="lock"
@@ -167,8 +213,9 @@ class BusReceived extends Component {
                   placeholder="My Dropdown"
                   iconPosition="left"
                   type="text"
-                  placeholder="Region"
+                  placeholder="Award Type"
                 />{" "}
+                {/*}
                 <Field
                   name="admin"
                   component={semanticFormField}
@@ -205,4 +252,4 @@ export default compose(
   ),
   reduxForm({ form: "query" }),
   requireAdmin
-)(BusReceived);
+)(BusMonth);

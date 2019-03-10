@@ -62,7 +62,7 @@ export const createAward = (formProps, callback) => async dispatch => {
     //dispatch({ type: GET_EMPLOYEE, payload: 'Must be a user to create award' });
   }
 };
-export const getAwardsSent = formProps => async dispatch => {
+export const getAwardsSent = (formProps, callback) => async dispatch => {
   try {
     console.log("here in the index.js actions", formProps);
     const response = await axios.get(`${ROOT_URL}/getawardssent`, {
@@ -70,6 +70,7 @@ export const getAwardsSent = formProps => async dispatch => {
         user_id: formProps.recipientID
       }
     });
+    callback();
   } catch (e) {
     console.log("error creating award");
     console.log(formProps);
@@ -77,7 +78,7 @@ export const getAwardsSent = formProps => async dispatch => {
   }
 };
 
-export const getAwardsReceived = formProps => async dispatch => {
+export const getAwardsReceived = (formProps, callback) => async dispatch => {
   try {
     console.log("here in the index.js actions", formProps);
     const response = await axios.get(`${ROOT_URL}/getawardsreceived`, {
@@ -85,12 +86,74 @@ export const getAwardsReceived = formProps => async dispatch => {
         user_id: formProps.recipientID
       }
     });
+    // callback();
   } catch (e) {
     console.log("error creating award");
     console.log(formProps);
     //dispatch({ type: GET_EMPLOYEE, payload: 'Must be a user to create award' });
   }
 };
+export const getAwardType = (formProps, callback) => async dispatch => {
+  try {
+    console.log("here in the index.js actions", formProps);
+    const response = await axios.get(`${ROOT_URL}/getawardType`, {
+      params: {
+        user_id: formProps.awardtypeID
+      }
+    });
+    callback();
+  } catch (e) {
+    console.log("error creating award");
+    console.log(formProps);
+    //dispatch({ type: GET_EMPLOYEE, payload: 'Must be a user to create award' });
+  }
+};
+export const getAwardMonth = (formProps, callback) => async dispatch => {
+  try {
+    console.log("here in the index.js actions", formProps);
+    const response = await axios.get(`${ROOT_URL}/getawardMonth`, {
+      params: {
+        user_id: formProps.monthID
+      }
+    });
+    callback();
+  } catch (e) {
+    console.log("error creating award");
+    console.log(formProps);
+    //dispatch({ type: GET_EMPLOYEE, payload: 'Must be a user to create award' });
+  }
+};
+export const getAwardRange = (formProps, callback) => async dispatch => {
+  try {
+    console.log("here in the index.js actions", formProps);
+    const response = await axios.get(`${ROOT_URL}/getawardrange`, {
+      params: {
+        award_id: formProps.awardtypeID,
+        end: formProps.end,
+        beginning: formProps.beginning
+      }
+    });
+    callback();
+  } catch (e) {
+    console.log("error creating award");
+    console.log(formProps);
+    //dispatch({ type: GET_EMPLOYEE, payload: 'Must be a user to create award' });
+  }
+};
+export const getAwardTotal = (formProps, callback) => async dispatch => {
+  try {
+    console.log("here in the index.js actions", formProps);
+    const response = await axios.get(`${ROOT_URL}/getawardtotal`, {
+      params: {}
+    });
+    callback();
+  } catch (e) {
+    console.log("error creating award");
+    console.log(formProps);
+    //dispatch({ type: GET_EMPLOYEE, payload: 'Must be a user to create award' });
+  }
+};
+
 export const signup = (formProps, callback) => async dispatch => {
   // formProps contains { email: '', password: '' }
   try {

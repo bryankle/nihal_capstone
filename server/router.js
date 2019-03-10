@@ -19,5 +19,5 @@ module.exports = function(app) {
   app.get("/getawardmonth", Business.getawardMonth);
   app.get("/getawardrange", Business.getawardRange);
   app.get("/getawardtotal", Business.getawardTotal);
-  app.delete("/deleteawards", Award.deleteawards);
+  app.delete("/deleteawards", Award.deleteawards); //
 };

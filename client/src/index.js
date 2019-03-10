@@ -22,6 +22,10 @@ import CreateAward from "./containers/CreateAward";
 import ViewAwards from "./containers/ViewAwards";
 import BusReceived from "./containers/Queries/BusReceived";
 import BusSent from "./containers/Queries/BusSent";
+import BusType from "./containers/Queries/BusType";
+import BusMonth from "./containers/Queries/BusMonth";
+import BusRange from "./containers/Queries/BusRange";
+import BusTotal from "./containers/Queries/BusTotal";
 
 const persistConfig = {
   key: "root",
@@ -56,6 +60,10 @@ const routing = (
           <Route path="/viewawards" component={ViewAwards} />
           <Route path="/busreceived" component={BusReceived} />
           <Route path="/bussent" component={BusSent} />
+          <Route path="/bustype" component={BusType} />
+          <Route path="/busmonth" component={BusMonth} />
+          <Route path="/busrange" component={BusRange} />
+          <Route path="/bustotal" component={BusTotal} />
           {/* <Route path='/admin-table' component={AdminTable} />      */}
         </Homepage>
       </Router>

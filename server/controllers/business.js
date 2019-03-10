@@ -82,11 +82,13 @@ exports.getawardMonth = function(req, res) {
     });
 };
 exports.getawardRange = function(req, res) {
-  const beginning = req.body.beginning;
-  const end = req.body.end;
+  //const beginning = req.body.beginning;
+  const beginning = req.query.beginning;
+  //const end = req.body.end;
+  const end = req.query.end;
   const award_id = req.query.award_id;
   console.log("beginning", beginning);
-  console.log("award_id", award_id);
+  console.log("end", end);
   Business.getAwardRange(beginning, end, award_id)
     .then(result => {
       console.log("Result of awards", result);

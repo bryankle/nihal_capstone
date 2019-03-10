@@ -201,7 +201,6 @@ class BusRange extends Component {
                   placeholder="Admin or User"
                 />
                 */}
-                <div>{this.props.errorMessage}</div>
                 <Button color="teal" fluid size="large">
                   Submit
                 </Button>

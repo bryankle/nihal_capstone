@@ -19,18 +19,8 @@ import requireAdmin from "../requireAdmin";
 const checkboxOptions = [
   {
     value: "1",
-    text: "Employee of the Day",
+    text: "Awards Received",
     key: "1"
-  },
-  {
-    value: "2",
-    text: "Employee of the Week",
-    key: "2"
-  },
-  {
-    value: "3",
-    text: "Employee of the Century",
-    key: "3"
   }
 ];
 const adminOptions = [
@@ -106,7 +96,7 @@ class BusTotal extends Component {
           {" "}
           <Grid.Column style={{ maxWidth: 450 }}>
             <Header as="h2" color="teal" textAlign="center">
-              Awards Issued By Type
+              Total Awards Received
             </Header>
 
             <Form size="large" onSubmit={handleSubmit(this.onSubmit)}>
@@ -183,7 +173,9 @@ class BusTotal extends Component {
                   placeholder="Admin or User"
                 />
                 */}
-                <div>{this.props.errorMessage}</div>
+                {
+                  //<div>{this.props.errorMessage}</div>}
+                }
                 <Button color="teal" fluid size="large">
                   Submit
                 </Button>

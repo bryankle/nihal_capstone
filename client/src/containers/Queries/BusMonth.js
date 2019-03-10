@@ -151,7 +151,7 @@ class BusMonth extends Component {
           {" "}
           <Grid.Column style={{ maxWidth: 450 }}>
             <Header as="h2" color="teal" textAlign="center">
-              Awards Issued By Type
+              Awards Issued By Month
             </Header>
 
             <Form size="large" onSubmit={handleSubmit(this.onSubmit)}>
@@ -228,7 +228,6 @@ class BusMonth extends Component {
                   placeholder="Admin or User"
                 />
                 */}
-                <div>{this.props.errorMessage}</div>
                 <Button color="teal" fluid size="large">
                   Submit
                 </Button>

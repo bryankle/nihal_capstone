@@ -14,7 +14,7 @@ sleep: function(time) {
 },
 
 mailCert: function(certInfo) {
-	module.exports.sleep(5000).then(() => {
+	module.exports.sleep(2000).then(() => {
 		mailCert.email(certInfo);
 	  })
 },

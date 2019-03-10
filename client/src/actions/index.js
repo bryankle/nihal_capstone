@@ -34,6 +34,19 @@ export const getAwards = (user_id) => async dispatch => {
     }
 }
 
+export const getSignature = (user_id) => async dispatch => {
+    try {
+        return await axios.get(`${ROOT_URL}/getsignature`, {
+            params: {
+                user_id: user_id
+            }
+        });
+    }
+    catch(e) {
+        console.log("error getting signature") 
+    }
+}
+
 export const deleteAwards = (award_ids, callback) => async dispatch => {
     try {
         const response = await axios.delete(`${ROOT_URL}/deleteawards`, {

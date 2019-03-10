@@ -45,5 +45,26 @@ module.exports = {
                 resolve(data);
             })
         })        
-    }
+    },
+    insertSigPath: function(sigPath, senderID) {
+        return new Promise(function(resolve, reject) {
+            const params = [sigPath, senderID];
+            mysql.pool.query('UPDATE user SET signature_path = ? WHERE user_id = ?', params,
+            function(err, data) {
+                if (err) reject(err);
+                resolve(data);
+            })
+        })
+    },
+    getSignature: function(user_id) {
+        return new Promise(function(resolve, reject) {
+            const params = [user_id];
+            mysql.pool.query(
+            `SELECT signature_path FROM user WHERE user_id = ?`, params,
+            function(err, data) {
+                if (err) reject(err);
+                resolve(data);
+            })
+        })        
+    },
 }

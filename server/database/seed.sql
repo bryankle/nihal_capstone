@@ -49,10 +49,10 @@ CREATE TABLE `award` (
     `award_id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `recipient_id` INT(11) NOT NULL,
     CONSTRAINT `fk_recipient_id`
-    FOREIGN KEY(`recipient_id`) REFERENCES `user` (`user_id`),
+    FOREIGN KEY(`recipient_id`) REFERENCES `user` (`user_id`) ON DELETE CASCADE,
     `sender_id` INT(11) NOT NULL,
     CONSTRAINT `fk_sender_id`
-    FOREIGN KEY(`sender_id`) REFERENCES `user` (`user_id`),
+    FOREIGN KEY(`sender_id`) REFERENCES `user` (`user_id`) ON DELETE CASCADE,
     `type` INT(11) NOT NULL,
     CONSTRAINT `fk_type`
     FOREIGN KEY(`type`) REFERENCES `award_type` (`award_type_id`),

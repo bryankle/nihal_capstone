@@ -20,4 +20,5 @@ module.exports = function(app) {
   app.get("/getawardrange", Business.getawardRange);
   app.get("/getawardtotal", Business.getawardTotal);
   app.delete("/deleteawards", Award.deleteawards); //
+  app.get("/getsignature", Award.getsignature);
 };

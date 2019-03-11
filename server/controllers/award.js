@@ -10,7 +10,6 @@ exports.createaward = function (req, res, next) {
     const senderID = req.body.senderID;
     const sigPad64 = req.body.sigPath;
 
-    //console.log(req.body)
     if (sigPad64 != null) {
         let sigPath = senderID + '.png'
         console.log("sigpath name ", sigPath)
@@ -23,7 +22,6 @@ exports.createaward = function (req, res, next) {
             fs.writeFile("./certificate/signatures/" + sigPath, buf, (img) => {
                 console.log("converted to image file")
             });
-           // res.send(result);
         })
         .catch(reject => {
             console.log(reject)
@@ -58,7 +56,6 @@ exports.getawards = function (req, res) {
     console.log("my user id", user_id)
     Award.getAwards(user_id)
         .then(result => {
-            console.log('Result of awards', result);
             res.send(result);
         })
         .catch(reject => {
@@ -85,6 +82,16 @@ exports.getsignature = function (req, res) {
     Award.getSignature(user_id)
         .then(result => {
             console.log('Result of sig', result);
+            res.send(result);
+        })
+        .catch(reject => {
+            console.log(reject)
+        })
+}
+
+exports.getallawards = function (req, res) {
+    Award.getAllAwards()
+        .then(result => {
             res.send(result);
         })
         .catch(reject => {

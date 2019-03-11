@@ -138,7 +138,7 @@ class CreateUser extends Component {
                   type="text"
                   placeholder="Admin or User"
                 />
-                <div>{this.props.errorMessage}</div>
+                {/* <div>{this.props.errorMessage}</div> */}
                 <Button color="teal" fluid size="large">
                   Submit
                 </Button>

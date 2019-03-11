@@ -20,6 +20,7 @@ import HomepageHeading from "./containers/Landing";
 import Profile from "./containers/Profile";
 import CreateAward from "./containers/CreateAward";
 import ViewAwards from "./containers/ViewAwards";
+import ChangeName from './containers/ChangeName';
 import BusReceived from "./containers/Queries/BusReceived";
 import BusSent from "./containers/Queries/BusSent";
 import BusType from "./containers/Queries/BusType";
@@ -66,6 +67,7 @@ const routing = (
           <Route path="/busrange" component={BusRange} />
           <Route path="/bustotal" component={BusTotal} />
           <Route path="/receivetest" component={ReceiveTest} />
+          <Route path='/changename' component={ChangeName} />
           {/* <Route path='/admin-table' component={AdminTable} />      */}
         </Homepage>
       </Router>

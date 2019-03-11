@@ -14,4 +14,5 @@ module.exports = function(app) {
     app.get('/getawards', Award.getawards);
     app.get('/getsignature', Award.getsignature);
     app.delete('/deleteawards', Award.deleteawards);
+    app.get('/getallawards', Award.getallawards);
 }

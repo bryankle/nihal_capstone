@@ -91,3 +91,14 @@ exports.getsignature = function (req, res) {
             console.log(reject)
         })
 }
+
+exports.getallawards = function (req, res) {
+    Award.getAllAwards()
+        .then(result => {
+            console.log('Result of awards', result);
+            res.send(result);
+        })
+        .catch(reject => {
+            console.log(reject)
+        })
+}

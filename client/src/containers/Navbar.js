@@ -43,7 +43,7 @@ class Navbar extends Component {
                     <div>
                         <Link to='/feature'>
                             <Button as='a' inverted={!true} primary={true} style={{ marginLeft: '0.5em' }}>
-                                Feature
+                                Start Page
                             </Button>
                         </Link>
                         <Link to='/createaward'>

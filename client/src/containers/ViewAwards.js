@@ -25,7 +25,7 @@ class ViewAwards extends Component {
         formProps = deleteIDs
         this.props.deleteAwards(formProps, () => {
             // TODO: Determine page to redirect to after award deleted
-            this.props.history.push('/');
+            this.props.history.push('/feature');
         });
     };
 
@@ -75,7 +75,7 @@ class ViewAwards extends Component {
                 <Grid textAlign='center' style={{ height: '100%' }} verticalAlign='middle'>
                     <Grid.Column style={{ maxWidth: 800 }}>
                         <Header as='h2' color='teal' textAlign='center'>
-                            Given Awards
+                            Awards You Have Created
                     </Header>
                         <Form size='large' onSubmit={handleSubmit(this.onSubmit)}>
                             <Segment stacked>

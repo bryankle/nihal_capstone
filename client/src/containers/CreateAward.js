@@ -88,7 +88,7 @@ class CreateAward extends Component {
         this.props.createAward(formProps, () => {
             console.log(formProps);
             // TODO: Determine page to redirect to after award created
-          this.props.history.push('/');
+          this.props.history.push('/feature');
         });
       };
 

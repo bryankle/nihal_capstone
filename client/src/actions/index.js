@@ -21,6 +21,16 @@ export const getRecipients = (result) => async dispatch => {
     }
 }
 
+
+export const getAllAwards = (result) => async dispatch => {
+    try {
+        return await axios.get(`${ROOT_URL}/getallawards`);
+    }
+    catch(e) {
+        console.log("error getting all awards") 
+    }
+}
+
 export const getAwards = (user_id) => async dispatch => {
     try {
         return await axios.get(`${ROOT_URL}/getawards`, {

@@ -39,7 +39,10 @@ class Feature extends Component {
                 <Grid textAlign='center' style={{ height: '100%' }} verticalAlign='middle'>
                     <Grid.Column style={{ maxWidth: 800 }}>
                         <Header as='h2' color='teal' textAlign='center'>
-                            Recent Awards Received by Your Colleagues
+                            Nihal Employee Recognition Portal
+                    </Header>
+                    <Header as='h2' color='teal' textAlign='center'>
+                            Recent Awards Submitted
                     </Header>
                             <Segment stacked>
                                 <Table celled>

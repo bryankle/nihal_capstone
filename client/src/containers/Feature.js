@@ -49,20 +49,20 @@ class Feature extends Component {
                                     <Table.Header>
                                         <Table.Row>
                                             {/* <Table.HeaderCell /> */}
-                                            {/* <Table.HeaderCell>Sender</Table.HeaderCell> */}
+                                            <Table.HeaderCell>Sender</Table.HeaderCell>
                                             <Table.HeaderCell>Recipient</Table.HeaderCell>
                                             <Table.HeaderCell>Type of Award</Table.HeaderCell>
-                                            <Table.HeaderCell>Date Given</Table.HeaderCell>
+                                            <Table.HeaderCell>Date</Table.HeaderCell>
                                         </Table.Row>
                                     </Table.Header>
                                     <Table.Body>
                                         {this.state.awards.map(award => (
                                             <Table.Row key={award.award_id}>
-                                                {/* <Table.Cell>
-                                                    {award.senderName}
-                                                </Table.Cell> */}
                                                 <Table.Cell>
-                                                    {award.name}
+                                                    {award.senderName}
+                                                </Table.Cell>
+                                                <Table.Cell>
+                                                    {award.recipientName}
                                                 </Table.Cell>
                                                 <Table.Cell>
                                                     {award.award_name}

@@ -69,10 +69,12 @@ module.exports = {
     },
     getAllAwards: function() {
         return new Promise(function(resolve, reject) {
-            mysql.pool.query(`SELECT award_id, CONCAT(user.first_name, ' ', user.last_name) as name, award_type.award_name, DATE_FORMAT(award_date, "%m/%d/%Y") AS date FROM
-            (award INNER JOIN user on award.recipient_id = user.user_id)
-            INNER JOIN award_type on award.type = award_type.award_type_id
-            ORDER BY award_date DESC`, 
+            mysql.pool.query(`SELECT award_id, CONCAT(u.first_name, ' ', u.last_name) as recipientName, CONCAT(u2.first_name, ' ', u2.last_name) as senderName, award_type.award_name, DATE_FORMAT(award_date, "%m/%d/%Y") AS date
+            FROM user AS u
+            JOIN award AS a ON a.recipient_id = u.user_id
+            JOIN user as u2 ON u2.user_id = a.sender_id
+            INNER JOIN award_type on a.type = award_type.award_type_id
+            ORDER BY a.award_date DESC`, 
             function(err, data) {
                 if (err) reject(err);
                 resolve(data);

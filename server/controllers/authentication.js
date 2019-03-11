@@ -55,3 +55,28 @@ exports.signup = function(req, res, next) {
     );
   });
 };
+
+exports.getfullname = function (req, res) {
+  const user_id = req.query.user_id;
+  User.getFullName(user_id)
+      .then(result => {
+          res.send(result);
+      })
+      .catch(reject => {
+          console.log(reject)
+      })
+}
+
+exports.changename = function (req, res) {
+  const user_id = req.body.userID;
+  const first_name = req.body.firstName;
+  const last_name = req.body.lastName;
+
+  User.changeName(first_name, last_name, user_id)
+      .then(result => {
+          res.send(result);
+      })
+      .catch(reject => {
+          console.log(reject)
+      })
+}

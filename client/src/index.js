@@ -19,6 +19,7 @@ import HomepageHeading from './containers/Landing';
 import Profile from './containers/Profile';
 import CreateAward from './containers/CreateAward';
 import ViewAwards from './containers/ViewAwards';
+import ChangeName from './containers/ChangeName';
 
 const persistConfig = {
     key: 'root',
@@ -49,7 +50,8 @@ const routing = (
                 <Route path='/create-user' component={CreateUser} />     
                 <Route path='/profile' component={Profile} />
                 <Route path='/createaward' component={CreateAward} />
-                <Route path='/viewawards' component={ViewAwards} />         
+                <Route path='/viewawards' component={ViewAwards} />     
+                <Route path='/changename' component={ChangeName} />    
                 {/* <Route path='/admin-table' component={AdminTable} />      */}
             </Homepage>
         </Router>

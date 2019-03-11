@@ -57,6 +57,29 @@ export const getSignature = (user_id) => async dispatch => {
     }
 }
 
+export const getFullName = (user_id) => async dispatch => {
+    try {
+        return await axios.get(`${ROOT_URL}/getfullname`, {
+            params: {
+                user_id: user_id
+            }
+        });
+    }
+    catch(e) {
+        console.log("error getting full name") 
+    }
+}
+
+export const changeName = (formProps, callback) => async dispatch => {
+    try {
+        const response = await axios.put(`${ROOT_URL}/changename`, formProps);
+        callback(); 
+    }
+    catch(e) {
+        console.log("error changing name") 
+    }
+}
+
 export const deleteAwards = (award_ids, callback) => async dispatch => {
     try {
         const response = await axios.delete(`${ROOT_URL}/deleteawards`, {

@@ -80,6 +80,7 @@ class CreateAward extends Component {
       }
 
     onSubmit = (formProps) => {
+        if (formProps.awardType == null || formProps.recipientID == null || formProps.email == null || formProps.date == null || formProps.time == null) return;
         formProps.senderID = this.state.user_id;
         if (this.state.hasSignature === false) {
             formProps.sigPath = this.state.trimmedDataURL
@@ -87,20 +88,15 @@ class CreateAward extends Component {
         console.log("form props:", formProps);
         this.props.createAward(formProps, () => {
             console.log(formProps);
-            // TODO: Determine page to redirect to after award created
           this.props.history.push('/feature');
         });
       };
 
-
     render() {
         const { handleSubmit } = this.props; 
-        console.log("senderID is ", this.state.user_id)
-        console.log(this.state.employees)
         let users = this.state.employees;
         let {trimmedDataURL} = this.state
 
-        console.log("useroptions", users)
         const styleBorder = {
             border: '2px solid black'
         }
@@ -128,7 +124,6 @@ class CreateAward extends Component {
                                 <Field name="email" component={semanticFormField} as={Form.Input} icon='mail' iconPosition='left' type="text" placeholder="Email" />
                                 <Field name="date" component={semanticFormField} as={Form.Input} icon='calendar' iconPosition='left' type="date"/>
                                 <Field name="time" component={semanticFormField} as={Form.Input} icon='clock' iconPosition='left' type="time" />
-                                {/* <div>{this.props.errorMessage}</div> */}
                                 <div>
                                 {this.state.hasSignature ?                                 
                                 <Button color='teal' fluid size='large'>
@@ -171,9 +166,8 @@ class CreateAward extends Component {
         )
     }
 }
-// function mapStateToProps(state) {
-//     return { errorMessage: state.auth.errorMessage };
-//   }
+
+
 function mapStateToProps(state) {
     return { 
         user_id: state.auth.user_id

@@ -15,4 +15,6 @@ module.exports = function(app) {
     app.get('/getsignature', Award.getsignature);
     app.delete('/deleteawards', Award.deleteawards);
     app.get('/getallawards', Award.getallawards);
+    app.get('/getfullname', Authentication.getfullname);
+    app.put('/changename', Authentication.changename);
 }

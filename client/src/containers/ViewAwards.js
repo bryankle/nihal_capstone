@@ -24,7 +24,6 @@ class ViewAwards extends Component {
         let deleteIDs = Object.keys(selections)
         formProps = deleteIDs
         this.props.deleteAwards(formProps, () => {
-            // TODO: Determine page to redirect to after award deleted
             this.props.history.push('/feature');
         });
     };
@@ -57,10 +56,16 @@ class ViewAwards extends Component {
                 selections: { [id]: { $set: true } },
             });
         });
+        this.isDisabled()
+    }
+
+    isDisabled = () => {
+        if (Object.keys(this.state.selections).length > 0)  return true
     }
 
     render() {
         const { handleSubmit } = this.props;
+        
         return (
             <div className='viewawards'>
                 <style>{`body > div,
@@ -108,7 +113,7 @@ class ViewAwards extends Component {
                                             </Table.Row>))}
                                     </Table.Body>
                                 </Table>
-                                <Button color='teal' fluid size='large'>
+                                <Button color='teal' fluid size='large' disabled={!this.isDisabled()}>
                                     Delete Selected Awards
                     </Button>
                             </Segment>
@@ -120,9 +125,6 @@ class ViewAwards extends Component {
     }
 }
 
-// function mapStateToProps(state) {
-//     return { errorMessage: state.auth.errorMessage };
-//    }
 function mapStateToProps(state) {
     return {
         user_id: state.auth.user_id

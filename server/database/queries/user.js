@@ -75,7 +75,29 @@ module.exports = {
         });
       });
     });
-  }
+  },
+  getFullName: function(user_id) {
+    return new Promise(function(resolve, reject) {
+        const params = [user_id];
+        mysql.pool.query(
+        `SELECT first_name, last_name FROM user WHERE user_id = ?`, params,
+        function(err, data) {
+            if (err) reject(err);
+            resolve(data);
+        })
+    })        
+  },
+  changeName: function(first_name, last_name, user_id) {
+    return new Promise(function(resolve, reject) {
+        const params = [first_name, last_name, user_id];
+        mysql.pool.query(
+        `UPDATE user SET first_name = ?, last_name = ? WHERE user_id = ?`, params,
+        function(err, data) {
+            if (err) reject(err);
+            resolve(data);
+        })
+    })        
+  } 
 };
 function todaydate() {
   var today = new Date();

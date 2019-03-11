@@ -94,7 +94,6 @@ class CreateAward extends Component {
 
     render() {
         const { handleSubmit } = this.props; 
-        let users = this.state.employees;
         let {trimmedDataURL} = this.state
 
         const styleBorder = {

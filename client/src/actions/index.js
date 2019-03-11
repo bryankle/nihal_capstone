@@ -15,6 +15,15 @@ export const getRecipients = result => async dispatch => {
     console.log("error getting users");
   }
 };
+/*
+export const getRecipients = result => async dispatch => {
+  try {
+    return await axios.get(`${ROOT_URL}/getemployees`);
+  } catch (e) {
+    console.log("error getting users");
+  }
+};
+*/
 
 export const getAwards = user_id => async dispatch => {
   try {
@@ -28,18 +37,17 @@ export const getAwards = user_id => async dispatch => {
   }
 };
 
-export const getSignature = (user_id) => async dispatch => {
-    try {
-        return await axios.get(`${ROOT_URL}/getsignature`, {
-            params: {
-                user_id: user_id
-            }
-        });
-    }
-    catch(e) {
-        console.log("error getting signature") 
-    }
-}
+export const getSignature = user_id => async dispatch => {
+  try {
+    return await axios.get(`${ROOT_URL}/getsignature`, {
+      params: {
+        user_id: user_id
+      }
+    });
+  } catch (e) {
+    console.log("error getting signature");
+  }
+};
 
 export const deleteAwards = (award_ids, callback) => async dispatch => {
   try {
@@ -83,6 +91,7 @@ export const getAwardsSent = (formProps, callback) => async dispatch => {
         user_id: formProps.recipientID
       }
     });
+    console.log("callback", callback);
     callback();
   } catch (e) {
     console.log("error creating award");
@@ -91,6 +100,23 @@ export const getAwardsSent = (formProps, callback) => async dispatch => {
   }
 };
 
+export const getAwardsReceived = result => async dispatch => {
+  try {
+    console.log("here in the index.js actions", result);
+    return await axios.get(`${ROOT_URL}/getawardsreceived`, {
+      params: {
+        user_id: result.recipientID
+      }
+    });
+
+    // callback();
+  } catch (e) {
+    console.log("error creating award");
+    console.log(result);
+    //dispatch({ type: GET_EMPLOYEE, payload: 'Must be a user to create award' });
+  }
+};
+/*
 export const getAwardsReceived = (formProps, callback) => async dispatch => {
   try {
     console.log("here in the index.js actions", formProps);
@@ -99,13 +125,15 @@ export const getAwardsReceived = (formProps, callback) => async dispatch => {
         user_id: formProps.recipientID
       }
     });
-    // callback();
+
+    callback();
   } catch (e) {
     console.log("error creating award");
     console.log(formProps);
     //dispatch({ type: GET_EMPLOYEE, payload: 'Must be a user to create award' });
   }
 };
+*/
 export const getAwardType = (formProps, callback) => async dispatch => {
   try {
     console.log("here in the index.js actions", formProps);

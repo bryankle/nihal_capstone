@@ -12,12 +12,10 @@ import {
   Segment,
   Input
 } from "semantic-ui-react";
-import * as actions from "../actions";
+import * as actions from "../../actions";
 import { Link } from "react-router-dom";
-import semanticFormField from "../components/SemanticForm";
-import requireAdmin from "./requireAdmin";
-//import { ButtonToolbar } from "react-bootstrap";
-import ButtonToolbar from "react-bootstrap/ButtonToolbar";
+import semanticFormField from "../../components/SemanticForm";
+import requireAdmin from "../requireAdmin";
 const checkboxOptions = [
   {
     value: "1",
@@ -48,7 +46,7 @@ const adminOptions = [
   }
 ];
 
-class BusinessInformation extends Component {
+class ReceiveTest extends Component {
   constructor() {
     super();
     this.state = {
@@ -79,7 +77,8 @@ class BusinessInformation extends Component {
 
   onSubmit = formProps => {
     console.log("look at the formprops", formProps);
-    this.props.getAwardsSent(formProps, () => {
+    this.props.getAwardsReceived(formProps).then(response => {
+      console.log("response says", response.data);
       // TODO: Determine page to redirect to after admin adds user
       this.props.history.push("/");
     });
@@ -100,7 +99,6 @@ class BusinessInformation extends Component {
           padding-top: 5em
         }
       `}</style>
-
         <Grid
           textAlign="center"
           style={{ height: "100%" }}
@@ -109,135 +107,9 @@ class BusinessInformation extends Component {
           {" "}
           <Grid.Column style={{ maxWidth: 450 }}>
             <Header as="h2" color="teal" textAlign="center">
-              Business Information Queries
+              Awards Received by User
             </Header>
-            <div>
-              <ButtonToolbar>
-                <Link to="/busSent">
-                  <Button
-                    as="a"
-                    inverted={!true}
-                    primary={true}
-                    style={{
-                      marginLeft: "0.5em",
-                      marginBottom: ".5em",
-                      width: "300px"
-                    }}
-                  >
-                    Awards Sent By User
-                  </Button>
-                </Link>
-              </ButtonToolbar>
-            </div>
-            <div>
-              <ButtonToolbar>
-                <Link to="/busreceived">
-                  <Button
-                    as="a"
-                    inverted={!true}
-                    primary={true}
-                    style={{
-                      marginLeft: "0.5em",
-                      marginBottom: ".5em",
-                      width: "300px"
-                    }}
-                  >
-                    Awards Received By User
-                  </Button>
-                </Link>
-              </ButtonToolbar>
-            </div>
-            <div>
-              <ButtonToolbar>
-                <Link to="/bustype">
-                  <Button
-                    as="a"
-                    inverted={!true}
-                    primary={true}
-                    style={{
-                      marginLeft: "0.5em",
-                      marginBottom: ".5em",
-                      width: "300px"
-                    }}
-                  >
-                    Award Type Totals
-                  </Button>
-                </Link>
-              </ButtonToolbar>
-            </div>
-            <div>
-              <ButtonToolbar>
-                <Link to="/busmonth">
-                  <Button
-                    as="a"
-                    inverted={!true}
-                    primary={true}
-                    style={{
-                      marginLeft: "0.5em",
-                      marginBottom: ".5em",
-                      width: "300px"
-                    }}
-                  >
-                    Awards Issued by Month
-                  </Button>
-                </Link>
-              </ButtonToolbar>
-            </div>
-            <div>
-              <ButtonToolbar>
-                <Link to="/busrange">
-                  <Button
-                    as="a"
-                    inverted={!true}
-                    primary={true}
-                    style={{
-                      marginLeft: "0.5em",
-                      marginBottom: ".5em",
-                      width: "300px"
-                    }}
-                  >
-                    Awards Issued by Range of Dates
-                  </Button>
-                </Link>
-              </ButtonToolbar>
-            </div>
-            <div>
-              <ButtonToolbar>
-                <Link to="/bustotal">
-                  <Button
-                    as="a"
-                    inverted={!true}
-                    primary={true}
-                    style={{
-                      marginLeft: "0.5em",
-                      marginBottom: ".5em",
-                      width: "300px"
-                    }}
-                  >
-                    Total Awards Received
-                  </Button>
-                </Link>
-              </ButtonToolbar>
-            </div>
-            <div>
-              <ButtonToolbar>
-                <Link to="/receivetest">
-                  <Button
-                    as="a"
-                    inverted={!true}
-                    primary={true}
-                    style={{
-                      marginLeft: "0.5em",
-                      marginBottom: ".5em",
-                      width: "300px"
-                    }}
-                  >
-                    Testing Receiving
-                  </Button>
-                </Link>
-              </ButtonToolbar>
-            </div>
-            {/*
+
             <Form size="large" onSubmit={handleSubmit(this.onSubmit)}>
               <Segment stacked>
                 {/*
@@ -268,7 +140,7 @@ class BusinessInformation extends Component {
                   type="text"
                   placeholder="Email"
                 />
-            *
+            */}
                 <Field
                   name="recipientID"
                   component={semanticFormField}
@@ -309,14 +181,13 @@ class BusinessInformation extends Component {
                   type="text"
                   placeholder="Admin or User"
                 />
-                
-                <div>{this.props.errorMessage}</div>
+                */}
+
                 <Button color="teal" fluid size="large">
                   Submit
                 </Button>
               </Segment>
             </Form>
-          */}
           </Grid.Column>
         </Grid>
       </div>
@@ -335,4 +206,4 @@ export default compose(
   ),
   reduxForm({ form: "query" }),
   requireAdmin
-)(BusinessInformation);
+)(ReceiveTest);

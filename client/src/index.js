@@ -26,6 +26,7 @@ import BusType from "./containers/Queries/BusType";
 import BusMonth from "./containers/Queries/BusMonth";
 import BusRange from "./containers/Queries/BusRange";
 import BusTotal from "./containers/Queries/BusTotal";
+import ReceiveTest from "./containers/Queries/ReceiveTest";
 
 const persistConfig = {
   key: "root",
@@ -64,6 +65,7 @@ const routing = (
           <Route path="/busmonth" component={BusMonth} />
           <Route path="/busrange" component={BusRange} />
           <Route path="/bustotal" component={BusTotal} />
+          <Route path="/receivetest" component={ReceiveTest} />
           {/* <Route path='/admin-table' component={AdminTable} />      */}
         </Homepage>
       </Router>

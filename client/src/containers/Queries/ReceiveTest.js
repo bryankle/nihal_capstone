@@ -14,6 +14,7 @@ import {
 } from "semantic-ui-react";
 import * as actions from "../../actions";
 import { Link } from "react-router-dom";
+import fileDownload from "react-file-download";
 import semanticFormField from "../../components/SemanticForm";
 import requireAdmin from "../requireAdmin";
 const checkboxOptions = [
@@ -81,6 +82,7 @@ class ReceiveTest extends Component {
       console.log("response says", response.data);
       // TODO: Determine page to redirect to after admin adds user
       this.props.history.push("/");
+      fileDownload(response.data, "filename.csv");
     });
   };
 

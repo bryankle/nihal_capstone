@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { compose } from "redux";
 import { reduxForm, Field } from "redux-form";
+import fileDownload from "react-file-download";
 import {
   Button,
   Form,
@@ -74,12 +75,22 @@ class BusType extends Component {
       })
       .catch(error => console.log(error.response));
   }
-
+  /*
   onSubmit = formProps => {
     console.log("look at the formprops", formProps);
     this.props.getAwardType(formProps, () => {
       // TODO: Determine page to redirect to after admin adds user
       this.props.history.push("/");
+    });
+  };
+  */
+  onSubmit = formProps => {
+    console.log("look at the formprops", formProps);
+    this.props.getAwardType(formProps).then(response => {
+      console.log("response says", response.data);
+      // TODO: Determine page to redirect to after admin adds user
+      this.props.history.push("/");
+      fileDownload(response.data, "awardtype.csv");
     });
   };
 

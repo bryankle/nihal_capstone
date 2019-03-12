@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { compose } from "redux";
 import { reduxForm, Field } from "redux-form";
+import fileDownload from "react-file-download";
 import {
   Button,
   Form,
@@ -77,12 +78,13 @@ class BusReceived extends Component {
 
   onSubmit = formProps => {
     console.log("look at the formprops", formProps);
-    this.props.getAwardsReceived(formProps, () => {
+    this.props.getAwardsReceived(formProps).then(response => {
+      console.log("response says", response.data);
       // TODO: Determine page to redirect to after admin adds user
       this.props.history.push("/");
+      fileDownload(response.data, "awardsreceived.csv");
     });
   };
-
   render() {
     const { handleSubmit } = this.props; // handleSubmit provided by redux form
 

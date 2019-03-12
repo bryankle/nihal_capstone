@@ -219,24 +219,6 @@ class BusinessInformation extends Component {
                 </Link>
               </ButtonToolbar>
             </div>
-            <div>
-              <ButtonToolbar>
-                <Link to="/receivetest">
-                  <Button
-                    as="a"
-                    inverted={!true}
-                    primary={true}
-                    style={{
-                      marginLeft: "0.5em",
-                      marginBottom: ".5em",
-                      width: "300px"
-                    }}
-                  >
-                    Testing Receiving
-                  </Button>
-                </Link>
-              </ButtonToolbar>
-            </div>
             {/*
             <Form size="large" onSubmit={handleSubmit(this.onSubmit)}>
               <Segment stacked>

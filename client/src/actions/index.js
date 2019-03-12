@@ -182,20 +182,20 @@ export const getAwardMonth = result => async dispatch => {
     //dispatch({ type: GET_EMPLOYEE, payload: 'Must be a user to create award' });
   }
 };
-export const getAwardRange = (formProps, callback) => async dispatch => {
+export const getAwardRange = result => async dispatch => {
   try {
-    console.log("here in the index.js actions", formProps);
-    const response = await axios.get(`${ROOT_URL}/getawardrange`, {
+    console.log("here in the index.js actions", result);
+    return await axios.get(`${ROOT_URL}/getawardrange`, {
       params: {
-        award_id: formProps.awardtypeID,
-        end: formProps.end,
-        beginning: formProps.beginning
+        award_id: result.awardtypeID,
+        end: result.end,
+        beginning: result.beginning
       }
     });
-    callback();
+    //callback();
   } catch (e) {
     console.log("error creating award");
-    console.log(formProps);
+    console.log(result);
     //dispatch({ type: GET_EMPLOYEE, payload: 'Must be a user to create award' });
   }
 };

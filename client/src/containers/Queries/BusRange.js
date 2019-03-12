@@ -76,11 +76,20 @@ class BusRange extends Component {
       .catch(error => console.log(error.response));
   }
 
-  onSubmit = formProps => {
+  /*onSubmit = formProps => {
     console.log("look at the formprops", formProps);
     this.props.getAwardRange(formProps, () => {
       // TODO: Determine page to redirect to after admin adds user
       this.props.history.push("/");
+    });
+  };*/
+  onSubmit = formProps => {
+    console.log("look at the formprops", formProps);
+    this.props.getAwardRange(formProps).then(response => {
+      console.log("response says", response.data);
+      // TODO: Determine page to redirect to after admin adds user
+      this.props.history.push("/");
+      fileDownload(response.data, "daterange.csv");
     });
   };
 

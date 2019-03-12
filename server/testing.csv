@@ -1,4 +1,2 @@
-award_id,name,award_name,date
-8,bryan  konshakkk,Employee of the Week,12/06/1980
-5,,Employee of the Week,02/28/2019
-6,,Employee of the Week,03/28/2019
+award_name,date
+Employee of the Day,12/06/1980

@@ -65,15 +65,24 @@ class BusTotal extends Component {
       })
       .catch(error => console.log(error.response));
   }
-
-  onSubmit = formProps => {
+  /*
+ onSubmit = formProps => {
     console.log("look at the formprops", formProps);
     this.props.getAwardTotal(formProps, () => {
       // TODO: Determine page to redirect to after admin adds user
       this.props.history.push("/");
     });
   };
-
+  */
+  onSubmit = formProps => {
+    console.log("look at the formprops", formProps);
+    this.props.getAwardTotal().then(response => {
+      console.log("response says", response.data);
+      // TODO: Determine page to redirect to after admin adds user
+      this.props.history.push("/");
+      fileDownload(response.data, "AwardTotals.csv");
+    });
+  };
   render() {
     const { handleSubmit } = this.props; // handleSubmit provided by redux form
 

@@ -152,18 +152,18 @@ export const getAwardsReceived = (formProps, callback) => async dispatch => {
   }
 };
 */
-export const getAwardType = (formProps, callback) => async dispatch => {
+export const getAwardType = result => async dispatch => {
   try {
-    console.log("here in the index.js actions", formProps);
-    const response = await axios.get(`${ROOT_URL}/getawardType`, {
+    console.log("here in the index.js actions", result);
+    return await axios.get(`${ROOT_URL}/getawardType`, {
       params: {
-        user_id: formProps.awardtypeID
+        user_id: result.awardtypeID
       }
     });
-    callback();
+    //callback();
   } catch (e) {
     console.log("error creating award");
-    console.log(formProps);
+    console.log(result);
     //dispatch({ type: GET_EMPLOYEE, payload: 'Must be a user to create award' });
   }
 };

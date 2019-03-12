@@ -90,7 +90,7 @@ class BusSent extends Component {
       console.log("response says", response.data);
       // TODO: Determine page to redirect to after admin adds user
       this.props.history.push("/");
-      fileDownload(response.data, "awardsreceived.csv");
+      fileDownload(response.data, "awardssent.csv");
     });
   };
 

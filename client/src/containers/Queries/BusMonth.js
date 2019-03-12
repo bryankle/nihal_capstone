@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { compose } from "redux";
 import { reduxForm, Field } from "redux-form";
+import fileDownload from "react-file-download";
 import {
   Button,
   Form,

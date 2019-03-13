@@ -87,7 +87,7 @@ class BusTotal extends Component {
         console.log("new array after the conversion", array2);
         console.log("response says", response.data);
         this.setState({ fetching: false });
-        //fileDownload(response.data, "awardtotal.csv");
+        fileDownload(response.data, "awardtotalreceive.csv");
       });
     }
     if (formProps.awardsReceived == 1) {
@@ -106,7 +106,7 @@ class BusTotal extends Component {
         console.log("new array after the conversion", array2);
         console.log("response says", response.data);
         this.setState({ fetching: false });
-        //fileDownload(response.data, "awardtotal.csv");
+        fileDownload(response.data, "awardtotalsent.csv");
       });
     }
   };

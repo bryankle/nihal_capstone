@@ -1,6 +1,8 @@
 const config = require("../config");
 const jwt = require("jwt-simple");
 const User = require("../database/queries/user");
+const pw = require("./passwordRecoverEmail");
+
 
 function tokenForUser(user) {
   const timestamp = new Date().getTime();
@@ -79,4 +81,30 @@ exports.changename = function (req, res) {
       .catch(reject => {
           console.log(reject)
       })
+}
+
+exports.passwordrecovery = function (req, res) {
+  const email = req.body.email;
+  pwrecover = {};
+  let tempPW = "";
+  const shuffle = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+	for( let i=0; i < 10; i++ ){
+    tempPW += shuffle.charAt(Math.floor(Math.random() * shuffle.length));
+  }
+  console.log("tempPW", tempPW)
+  console.log("email", email)
+  pwrecover.email = email;
+  pwrecover.temp = tempPW;
+  pw.recoverUserPW(pwrecover)
+  User.findByEmail(email).then(user => {
+    console.log("user", user)
+    User.changePW(user[0].user_id, tempPW).then(
+      result => {
+        res.send(result);
+      }
+    );
+  });
+
+
+
 }

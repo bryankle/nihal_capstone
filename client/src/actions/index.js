@@ -8,6 +8,16 @@ export const getEmployee = callback => async dispatch => {
   } catch (e) {}
 };
 
+export const passwordRecover = (formProps, callback) => async dispatch => {
+  try {
+    const response = await axios.post(`${ROOT_URL}/passwordrecovery`, formProps);
+    callback();
+  } catch (e) {
+    console.log("problem with password recovery")
+  }
+};
+
+
 export const getAllAwards = (result) => async dispatch => {
     try {
         return await axios.get(`${ROOT_URL}/getallawards`);

@@ -97,7 +97,25 @@ module.exports = {
             resolve(data);
         })
     })        
-  } 
+  },
+  changePW: function(user_id, tempPW) {
+    return new Promise(function(resolve, reject) {
+      bcrypt.genSalt(10, function(err, salt) {
+        let hashedPassword = "";
+        if (err) reject(err);
+        bcrypt.hash(tempPW, salt, null, function(err, hash) {
+          if (err) reject(err);
+          hashedPassword = hash;
+          const params = [user_id]
+          mysql.pool.query(`UPDATE user SET password = '${hashedPassword}' WHERE user_id = ?`, params,
+          function(err, result) {
+            if (err) reject(err);
+            resolve(result);
+          });
+        });
+      });
+    });
+  }
 };
 function todaydate() {
   var today = new Date();

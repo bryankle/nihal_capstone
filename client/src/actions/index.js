@@ -212,6 +212,19 @@ export const getAwardTotal = result => async dispatch => {
     //dispatch({ type: GET_EMPLOYEE, payload: 'Must be a user to create award' });
   }
 };
+export const getAwardTotalSent = result => async dispatch => {
+  try {
+    console.log("here in the index.js actions", result);
+    return await axios.get(`${ROOT_URL}/getawardtotalsent`, {
+      params: {}
+    });
+    //callback();
+  } catch (e) {
+    console.log("error creating award");
+    console.log(result);
+    //dispatch({ type: GET_EMPLOYEE, payload: 'Must be a user to create award' });
+  }
+};
 
 export const signup = (formProps, callback) => async dispatch => {
   // formProps contains { email: '', password: '' }

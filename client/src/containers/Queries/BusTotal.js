@@ -21,8 +21,13 @@ import Chart from "react-google-charts";
 import fileDownload from "react-file-download";
 const checkboxOptions = [
   {
-    value: "1",
+    value: "0",
     text: "Awards Received",
+    key: "0"
+  },
+  {
+    value: "1",
+    text: "Awards Sent",
     key: "1"
   }
 ];
@@ -66,22 +71,44 @@ class BusTotal extends Component {
       .catch(error => console.log(error.response));
   }
   onSubmit = formProps => {
-    console.log("look at the formprops", formProps);
+    console.log("look at the formprops", formProps.awardsReceived);
+    if (formProps.awardsReceived == 0) {
+      console.log("hello you selected received");
 
-    this.props.getAwardTotal().then(response => {
-      array = CSVToArray(response.data);
+      this.props.getAwardTotal().then(response => {
+        array = CSVToArray(response.data);
 
-      //formatChartData(data)
-      var array2 = formatChartData(array);
-      //var array2 = doIt(array);
-      this.setState({ results: array2 });
-      console.log("this state results", this.state.results);
-      console.log("new array original", array);
-      console.log("new array after the conversion", array2);
-      console.log("response says", response.data);
-      this.setState({ fetching: false });
-      fileDownload(response.data, "awardtotal.csv");
-    });
+        //formatChartData(data)
+        var array2 = formatChartData(array);
+        //var array2 = doIt(array);
+        this.setState({ results: array2 });
+        console.log("this state results", this.state.results);
+        console.log("new array original", array);
+        console.log("new array after the conversion", array2);
+        console.log("response says", response.data);
+        this.setState({ fetching: false });
+        //fileDownload(response.data, "awardtotal.csv");
+      });
+    }
+    if (formProps.awardsReceived == 1) {
+      console.log("hello you selected sent");
+
+      options.title = "Total Business Awards Sent by User";
+      this.props.getAwardTotalSent().then(response => {
+        array = CSVToArray(response.data);
+
+        //formatChartData(data)
+        var array2 = formatChartData(array);
+        //var array2 = doIt(array);
+        this.setState({ results: array2 });
+        console.log("this state results", this.state.results);
+        console.log("new array original", array);
+        console.log("new array after the conversion", array2);
+        console.log("response says", response.data);
+        this.setState({ fetching: false });
+        //fileDownload(response.data, "awardtotal.csv");
+      });
+    }
   };
 
   render() {

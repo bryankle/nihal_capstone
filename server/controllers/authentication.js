@@ -86,6 +86,7 @@ exports.changename = function (req, res) {
 exports.passwordrecovery = function (req, res) {
   const email = req.body.email;
   pwrecover = {};
+  // create a unique temp password for user
   let tempPW = "";
   const shuffle = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 	for( let i=0; i < 10; i++ ){
@@ -104,7 +105,16 @@ exports.passwordrecovery = function (req, res) {
       }
     );
   });
+}
 
+exports.changepassword = function (req, res) {
+  const newPW = req.body.password1;
+  const user_id = req.body.userID;
 
+  User.changePW(user_id, newPW).then(
+    result => {
+      res.send(result);
+    }
+  );
 
 }

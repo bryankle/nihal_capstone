@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import { Button, Container, Menu } from "semantic-ui-react";
+import { Button, Container, Menu, Dropdown } from "semantic-ui-react";
 
 class Navbar extends Component {
   state = {};
@@ -78,7 +78,7 @@ class Navbar extends Component {
                 primary={true}
                 style={{ marginLeft: "0.5em" }}
               >
-                Feature
+                Recent Awards
               </Button>
             </Link>
             <Link to="/createaward">
@@ -101,7 +101,7 @@ class Navbar extends Component {
                 View Awards
               </Button>
             </Link>
-            <Link to='/changename'>
+            <Link to='/editinfo'>
               <Button 
                 as='a' 
                 inverted={!true} 
@@ -110,7 +110,7 @@ class Navbar extends Component {
                 >
                 Edit My Info
               </Button>
-            </Link>
+            </Link> 
             <Link to="/signout">
               <Button
                 as="a"

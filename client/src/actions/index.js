@@ -17,6 +17,14 @@ export const passwordRecover = (formProps, callback) => async dispatch => {
   }
 };
 
+export const changePassword = (formProps, callback) => async dispatch => {
+  try {
+    const response = await axios.post(`${ROOT_URL}/changepassword`, formProps);
+    callback();
+  } catch (e) {
+    console.log("problem with changing password")
+  }
+};
 
 export const getAllAwards = (result) => async dispatch => {
     try {

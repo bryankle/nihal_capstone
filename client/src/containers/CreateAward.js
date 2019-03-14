@@ -113,11 +113,11 @@ class CreateAward extends Component {
                 `}</style>
                 <Grid textAlign='center' style={{ height: '100%' }} verticalAlign='middle'>
                     <Grid.Column style={{ maxWidth: 500 }}>
-                        <Header as='h2' color='teal' textAlign='center'>
-                            Create an Award
-                        </Header>
                         <Form size='large' onSubmit={handleSubmit(this.onSubmit)}>
                             <Segment stacked>
+                                <Header as='h2' color='teal' textAlign='center'>
+                                    Create an Award
+                                </Header>
                                 <Field name="awardType" component={semanticFormField} as={Form.Dropdown} options={awardTypeOptions} type="text" placeholder="Choose Type of Award" />
                                 <Field name="recipientID" component={semanticFormField} as={Form.Dropdown} options={this.state.employees} type="text" placeholder="Choose Award Recipient" />
                                 <Field name="email" component={semanticFormField} as={Form.Input} icon='mail' iconPosition='left' type="text" placeholder="Email" />

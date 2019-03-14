@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import { Button, Container, Menu, Dropdown } from "semantic-ui-react";
+import { Button, Container, Menu } from "semantic-ui-react";
 
 class Navbar extends Component {
   state = {};
@@ -18,7 +18,7 @@ class Navbar extends Component {
               <Button
                 as="a"
                 inverted={!true}
-                primary={true}
+                color='teal'
                 style={{ marginLeft: "0.5em" }}
               >
                 Admin Table
@@ -28,7 +28,7 @@ class Navbar extends Component {
               <Button
                 as="a"
                 inverted={!true}
-                primary={true}
+                color='teal'
                 style={{ marginLeft: "0.5em" }}
               >
                 Admin Feature
@@ -38,7 +38,7 @@ class Navbar extends Component {
               <Button
                 as="a"
                 inverted={!true}
-                primary={true}
+                color='teal'
                 style={{ marginLeft: "0.5em" }}
               >
                 Create User
@@ -48,7 +48,7 @@ class Navbar extends Component {
               <Button
                 as="a"
                 inverted={!true}
-                primary={true}
+                color='teal'
                 style={{ marginLeft: "0.5em" }}
               >
                 Business Information
@@ -58,7 +58,7 @@ class Navbar extends Component {
               <Button
                 as="a"
                 inverted={!true}
-                primary={true}
+                color='teal'
                 style={{ marginLeft: "0.5em" }}
               >
                 Sign Out
@@ -75,7 +75,7 @@ class Navbar extends Component {
               <Button
                 as="a"
                 inverted={!true}
-                primary={true}
+                color='teal'
                 style={{ marginLeft: "0.5em" }}
               >
                 Recent Awards
@@ -85,7 +85,7 @@ class Navbar extends Component {
               <Button
                 as="a"
                 inverted={!true}
-                primary={true}
+                color='teal'
                 style={{ marginLeft: "0.5em" }}
               >
                 Create Award
@@ -95,7 +95,7 @@ class Navbar extends Component {
               <Button
                 as="a"
                 inverted={!true}
-                primary={true}
+                color='teal'
                 style={{ marginLeft: "0.5em" }}
               >
                 View Awards
@@ -105,7 +105,7 @@ class Navbar extends Component {
               <Button 
                 as='a' 
                 inverted={!true} 
-                primary={true} 
+                color='teal'
                 style={{ marginLeft: '0.5em' }}
                 >
                 Edit My Info
@@ -115,7 +115,7 @@ class Navbar extends Component {
               <Button
                 as="a"
                 inverted={!true}
-                primary={true}
+                color='teal'
                 style={{ marginLeft: "0.5em" }}
               >
                 Sign Out

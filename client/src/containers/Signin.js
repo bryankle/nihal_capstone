@@ -38,12 +38,11 @@ class Signin extends Component {
         `}</style>
         <Grid textAlign='center' style={{ height: '100%' }} verticalAlign='middle'>
           <Grid.Column style={{ maxWidth: 450 }}>
-            <Header as='h2' color='teal' textAlign='center'>
-              Sign In
-            </Header>
-          
             <Form size='large' onSubmit={handleSubmit(this.onSubmit)}>
               <Segment stacked>
+                <Header as='h2' color='teal' textAlign='center'>
+                  Sign In
+                </Header>
                 <Field name="email" component={semanticFormField} as={Form.Input} icon='mail' iconPosition='left' type="text" placeholder="Email" />
                 <Field name="password" component={semanticFormField} as={Form.Input} icon='lock' iconPosition='left' type="password" placeholder="Password" />
                 <Button color='teal' fluid size='large'>

@@ -7,6 +7,23 @@ export const getEmployee = callback => async dispatch => {
     const response = await axios.get(`${ROOT_URL}/employee`);
   } catch (e) {}
 };
+export const passwordRecover = (formProps, callback) => async dispatch => {
+  try {
+    const response = await axios.post(`${ROOT_URL}/passwordrecovery`, formProps);
+    callback();
+  } catch (e) {
+    console.log("problem with password recovery")
+  }
+};
+
+export const changePassword = (formProps, callback) => async dispatch => {
+  try {
+    const response = await axios.post(`${ROOT_URL}/changepassword`, formProps);
+    callback();
+  } catch (e) {
+    console.log("problem with changing password")
+  }
+};
 
 export const getAllAwards = result => async dispatch => {
   try {

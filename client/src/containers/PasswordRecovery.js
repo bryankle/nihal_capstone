@@ -2,55 +2,47 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { reduxForm, Field } from 'redux-form';
-import { Button, Form, Grid, Header, Image, Message, Segment, Input } from 'semantic-ui-react';
+import { Button, Form, Grid, Header, Segment } from 'semantic-ui-react';
 import * as actions from '../actions';
 import semanticFormField from '../components/SemanticForm';
 
-class Signin extends Component {
-  forgotPassword = (event) => {
-    event.preventDefault();
-    this.props.history.push('/passwordrecovery')
-  }
+class PasswordRecovery extends Component {
 
   onSubmit = (formProps) => {
-    this.props.signin(formProps, () => {
-      if (this.props.admin) this.props.history.push('/admin-feature');
-      else this.props.history.push('/feature');
+    console.log("formprops are", formProps)
+    this.props.passwordRecover(formProps, () => {
+      this.props.history.push('/signin');
     });
   };
 
   render() {
-
-    console.log('props from signin', this.props);
-
     const { handleSubmit } = this.props; // handleSubmit provided by redux form
     return (
-      <div className='login-form'>
+      <div className='passwordrecovery'>
         <style>{`
           body > div,
           body > div > div,
-          body > div > div > div.login-form {
+          body > div > div > div.passwordrecovery {
             height: 100%;
           }
-          .login-form {
+          .passwordrecovery {
             padding-top: 5em
           }
         `}</style>
         <Grid textAlign='center' style={{ height: '100%' }} verticalAlign='middle'>
-          <Grid.Column style={{ maxWidth: 450 }}>
+          <Grid.Column style={{ maxWidth: 500 }}>
             <Header as='h2' color='teal' textAlign='center'>
-              Sign In
+              Password Recovery
             </Header>
-          
+            <Header as='h2' color='teal' textAlign='center'>
+              Please enter your account's email address.
+            </Header>
             <Form size='large' onSubmit={handleSubmit(this.onSubmit)}>
               <Segment stacked>
                 <Field name="email" component={semanticFormField} as={Form.Input} icon='mail' iconPosition='left' type="text" placeholder="Email" />
-                <Field name="password" component={semanticFormField} as={Form.Input} icon='lock' iconPosition='left' type="password" placeholder="Password" />
                 <Button color='teal' fluid size='large'>
-                  Sign in
+                  Submit
                 </Button>
-                <br/>
-                <button onClick={this.forgotPassword}>Forgot your password?</button>
               </Segment>
             </Form>
           </Grid.Column>
@@ -70,6 +62,6 @@ function mapStateToProps(state) {
 
 export default compose (
   connect(mapStateToProps, actions),
-  reduxForm({ form: 'signin'})
-)(Signin);
+  reduxForm({ form: 'passwordrecovery'})
+)(PasswordRecovery);
 

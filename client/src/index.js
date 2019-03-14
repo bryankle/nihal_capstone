@@ -28,6 +28,9 @@ import BusMonth from "./containers/Queries/BusMonth";
 import BusRange from "./containers/Queries/BusRange";
 import BusTotal from "./containers/Queries/BusTotal";
 import ReceiveTest from "./containers/Queries/ReceiveTest";
+import PasswordRecovery from './containers/PasswordRecovery';
+import ChangePassword from './containers/ChangePassword';
+import EditInfo from './containers/EditInfo';
 
 const persistConfig = {
   key: "root",
@@ -68,6 +71,9 @@ const routing = (
           <Route path="/bustotal" component={BusTotal} />
           <Route path="/receivetest" component={ReceiveTest} />
           <Route path='/changename' component={ChangeName} />
+          <Route path='/passwordrecovery' component={PasswordRecovery} />
+          <Route path='/changepassword' component={ChangePassword} />
+          <Route path='/editinfo' component={EditInfo} />
           {/* <Route path='/admin-table' component={AdminTable} />      */}
         </Homepage>
       </Router>

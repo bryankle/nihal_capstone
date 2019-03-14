@@ -25,4 +25,6 @@ module.exports = function(app) {
   app.get("/getallawards", Award.getallawards);
   app.get("/getfullname", Authentication.getfullname);
   app.put("/changename", Authentication.changename);
+  app.post('/passwordrecovery', Authentication.passwordrecovery);
+  app.post('/changepassword', Authentication.changepassword);
 };

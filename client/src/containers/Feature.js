@@ -38,13 +38,13 @@ class Feature extends Component {
                 `}</style>
                 <Grid textAlign='center' style={{ height: '100%' }} verticalAlign='middle'>
                     <Grid.Column style={{ maxWidth: 800 }}>
+                    <Segment stacked>
                         <Header as='h2' color='teal' textAlign='center'>
-                            Nihal Employee Recognition Portal
-                    </Header>
-                    <Header as='h2' color='teal' textAlign='center'>
-                            Recent Awards Submitted
-                    </Header>
-                            <Segment stacked>
+                                Nihal Employee Recognition Portal
+                        </Header>
+                        <Header as='h2' color='teal' textAlign='center'>
+                                Recent Awards Submitted
+                        </Header>
                                 <Table celled>
                                     <Table.Header>
                                         <Table.Row>

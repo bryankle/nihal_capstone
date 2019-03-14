@@ -51,12 +51,12 @@ class ChangePassword extends Component {
                 `}</style>
                 <Grid textAlign='center' style={{ height: '100%' }} verticalAlign='middle'>
                     <Grid.Column style={{ maxWidth: 500 }}>
-                        <Header as='h2' color='teal' textAlign='center'>
-                            Enter a new password
-                        </Header>
-                        You will need to sign in using the new password after hitting submit.
                         <Form size='large' onSubmit={handleSubmit(this.onSubmit)}>
                             <Segment stacked>
+                                <Header as='h2' color='teal' textAlign='center'>
+                                    Enter a new password
+                                </Header>
+                                You will need to sign in using the new password after hitting submit.
                                 <Field name="password1" component={semanticFormField} as={Form.Input} icon="lock" iconPosition="left" type="password" placeholder="New Password" />
                                 <Field name="password2" component={semanticFormField} as={Form.Input} icon="lock" iconPosition="left" type="password" placeholder="Re-enter New Password"/>
                                 <Button color='teal' fluid size='large' disabled={this.props.pristine}>

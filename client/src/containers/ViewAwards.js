@@ -79,11 +79,11 @@ class ViewAwards extends Component {
                 `}</style>
                 <Grid textAlign='center' style={{ height: '100%' }} verticalAlign='middle'>
                     <Grid.Column style={{ maxWidth: 800 }}>
-                        <Header as='h2' color='teal' textAlign='center'>
-                            Awards You Have Created
-                    </Header>
                         <Form size='large' onSubmit={handleSubmit(this.onSubmit)}>
                             <Segment stacked>
+                                <Header as='h2' color='teal' textAlign='center'>
+                                    Awards You Have Created
+                                </Header>
                                 <Table celled>
                                     <Table.Header>
                                         <Table.Row>

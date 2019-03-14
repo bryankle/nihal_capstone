@@ -1,41 +1,44 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
-import { withRouter} from 'react-router-dom';
-import { Segment, Visibility } from 'semantic-ui-react';
-import Navbar from './Navbar';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import { withRouter } from "react-router-dom";
+import { Segment, Visibility } from "semantic-ui-react";
+import Navbar from "./Navbar";
+import "../App.css";
+import logo from "../img/showcase.jpg";
 
 class DesktopContainer extends Component {
-  state = {}
-      
-  hideFixedMenu = () => this.setState({ fixed: false })
-  showFixedMenu = () => this.setState({ fixed: true })
+  state = {};
+
+  hideFixedMenu = () => this.setState({ fixed: false });
+  showFixedMenu = () => this.setState({ fixed: true });
+
   render() {
-    const { children } = this.props
+    const { children } = this.props;
 
     return (
-      <div>
+      <div className="homepage">
         <Visibility
-            once={false}
-            onBottomPassed={this.showFixedMenu}
-            onBottomPassedReverse={this.hideFixedMenu}
-          >
+          once={false}
+          onBottomPassed={this.showFixedMenu}
+          onBottomPassedReverse={this.hideFixedMenu}
+        >
           <Segment
-            inverted={this.props.location.pathname === '/' ? true : false} // Enables inverted background only on hgome
-            textAlign='center'
-            style={{ minHeight: 700, padding: '1em 0em' }}
+            // inverted={this.props.location.pathname === "/" ? true : false} // Enables inverted background only on hgome
+            textAlign="center"
+            style={{ minHeight: 700, padding: "1em 0em" }}
             vertical
-            >
-          <Navbar />
-        {children}
-        </Segment>
+          >
+            <Navbar />
+            {children}
+          </Segment>
         </Visibility>
       </div>
-    )
+    );
   }
 }
 
 DesktopContainer.propTypes = {
-  children: PropTypes.node,
-}
+  children: PropTypes.node
+};
 
 export default withRouter(DesktopContainer);

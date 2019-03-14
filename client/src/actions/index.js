@@ -7,7 +7,6 @@ export const getEmployee = callback => async dispatch => {
     const response = await axios.get(`${ROOT_URL}/employee`);
   } catch (e) {}
 };
-
 export const passwordRecover = (formProps, callback) => async dispatch => {
   try {
     const response = await axios.post(`${ROOT_URL}/passwordrecovery`, formProps);
@@ -26,14 +25,13 @@ export const changePassword = (formProps, callback) => async dispatch => {
   }
 };
 
-export const getAllAwards = (result) => async dispatch => {
-    try {
-        return await axios.get(`${ROOT_URL}/getallawards`);
-    }
-    catch(e) {
-        console.log("error getting all awards") 
-    }
-}
+export const getAllAwards = result => async dispatch => {
+  try {
+    return await axios.get(`${ROOT_URL}/getallawards`);
+  } catch (e) {
+    console.log("error getting all awards");
+  }
+};
 
 export const getRecipients = result => async dispatch => {
   try {
@@ -67,28 +65,26 @@ export const getSignature = user_id => async dispatch => {
   }
 };
 
-export const getFullName = (user_id) => async dispatch => {
-    try {
-        return await axios.get(`${ROOT_URL}/getfullname`, {
-            params: {
-                user_id: user_id
-            }
-        });
-    }
-    catch(e) {
-        console.log("error getting full name") 
-    }
-}
+export const getFullName = user_id => async dispatch => {
+  try {
+    return await axios.get(`${ROOT_URL}/getfullname`, {
+      params: {
+        user_id: user_id
+      }
+    });
+  } catch (e) {
+    console.log("error getting full name");
+  }
+};
 
 export const changeName = (formProps, callback) => async dispatch => {
-    try {
-        const response = await axios.put(`${ROOT_URL}/changename`, formProps);
-        callback(); 
-    }
-    catch(e) {
-        console.log("error changing name") 
-    }
-}
+  try {
+    const response = await axios.put(`${ROOT_URL}/changename`, formProps);
+    callback();
+  } catch (e) {
+    console.log("error changing name");
+  }
+};
 
 export const deleteAwards = (award_ids, callback) => async dispatch => {
   try {
@@ -122,19 +118,19 @@ export const createAward = (formProps, callback) => async dispatch => {
   }
 };
 
-export const getAwardsSent = (formProps, callback) => async dispatch => {
+export const getAwardsSent = result => async dispatch => {
   try {
-    console.log("here in the index.js actions", formProps);
-    const response = await axios.get(`${ROOT_URL}/getawardssent`, {
+    console.log("here in the index.js actions", result);
+    return await axios.get(`${ROOT_URL}/getawardssent`, {
       params: {
-        user_id: formProps.recipientID
+        user_id: result.recipientID
       }
     });
-    console.log("callback", callback);
-    callback();
+    //console.log("callback", callback);
+    //callback();
   } catch (e) {
     console.log("error creating award");
-    console.log(formProps);
+    console.log(result);
     //dispatch({ type: GET_EMPLOYEE, payload: 'Must be a user to create award' });
   }
 };
@@ -173,63 +169,76 @@ export const getAwardsReceived = (formProps, callback) => async dispatch => {
   }
 };
 */
-export const getAwardType = (formProps, callback) => async dispatch => {
+export const getAwardType = result => async dispatch => {
   try {
-    console.log("here in the index.js actions", formProps);
-    const response = await axios.get(`${ROOT_URL}/getawardType`, {
+    console.log("here in the index.js actions", result);
+    return await axios.get(`${ROOT_URL}/getawardType`, {
       params: {
-        user_id: formProps.awardtypeID
+        user_id: result.awardtypeID
       }
     });
-    callback();
+    //callback();
   } catch (e) {
     console.log("error creating award");
-    console.log(formProps);
+    console.log(result);
     //dispatch({ type: GET_EMPLOYEE, payload: 'Must be a user to create award' });
   }
 };
-export const getAwardMonth = (formProps, callback) => async dispatch => {
+export const getAwardMonth = result => async dispatch => {
   try {
-    console.log("here in the index.js actions", formProps);
-    const response = await axios.get(`${ROOT_URL}/getawardMonth`, {
+    console.log("here in the index.js actions", result);
+    return await axios.get(`${ROOT_URL}/getawardMonth`, {
       params: {
-        user_id: formProps.monthID
+        user_id: result.monthID
       }
     });
-    callback();
+    //callback();
   } catch (e) {
     console.log("error creating award");
-    console.log(formProps);
+    console.log(result);
     //dispatch({ type: GET_EMPLOYEE, payload: 'Must be a user to create award' });
   }
 };
-export const getAwardRange = (formProps, callback) => async dispatch => {
+export const getAwardRange = result => async dispatch => {
   try {
-    console.log("here in the index.js actions", formProps);
-    const response = await axios.get(`${ROOT_URL}/getawardrange`, {
+    console.log("here in the index.js actions", result);
+    return await axios.get(`${ROOT_URL}/getawardrange`, {
       params: {
-        award_id: formProps.awardtypeID,
-        end: formProps.end,
-        beginning: formProps.beginning
+        award_id: result.awardtypeID,
+        end: result.end,
+        beginning: result.beginning
       }
     });
-    callback();
+    //callback();
   } catch (e) {
     console.log("error creating award");
-    console.log(formProps);
+    console.log(result);
     //dispatch({ type: GET_EMPLOYEE, payload: 'Must be a user to create award' });
   }
 };
-export const getAwardTotal = (formProps, callback) => async dispatch => {
+export const getAwardTotal = result => async dispatch => {
   try {
-    console.log("here in the index.js actions", formProps);
-    const response = await axios.get(`${ROOT_URL}/getawardtotal`, {
+    console.log("here in the index.js actions", result);
+    return await axios.get(`${ROOT_URL}/getawardtotal`, {
       params: {}
     });
-    callback();
+    //callback();
   } catch (e) {
     console.log("error creating award");
-    console.log(formProps);
+    console.log(result);
+    //dispatch({ type: GET_EMPLOYEE, payload: 'Must be a user to create award' });
+  }
+};
+export const getAwardTotalSent = result => async dispatch => {
+  try {
+    console.log("here in the index.js actions", result);
+    return await axios.get(`${ROOT_URL}/getawardtotalsent`, {
+      params: {}
+    });
+    //callback();
+  } catch (e) {
+    console.log("error creating award");
+    console.log(result);
     //dispatch({ type: GET_EMPLOYEE, payload: 'Must be a user to create award' });
   }
 };

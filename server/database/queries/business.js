@@ -107,10 +107,25 @@ module.exports = {
     return new Promise(function(resolve, reject) {
       const params = [user_id];
       mysql.pool.query(
-        `SELECT CONCAT(user.first_name, ' ', user.last_name) as name, count(award.recipient_id) FROM
+        `SELECT CONCAT(user.first_name, ' ', user.last_name) as name, (count(award.recipient_id)) as "Total Awards Received" FROM
             (award INNER JOIN user on award.recipient_id = user.user_id)
             INNER JOIN award_type on award.type = award_type.award_type_id
-            GROUP BY award.recipient_id`,
+            GROUP BY award.recipient_id ORDER BY count(award.recipient_id) desc`,
+        params,
+        function(err, data) {
+          if (err) reject(err);
+          resolve(data);
+        }
+      );
+    });
+  },
+  getAwardTotalSent: function(user_id) {
+    return new Promise(function(resolve, reject) {
+      const params = [user_id];
+      mysql.pool.query(
+        `SELECT CONCAT(user.first_name, ' ', user.last_name) as name ,(count(award.sender_id)) as "Total Awards Sent" FROM
+            award INNER JOIN user on award.sender_id = user.user_id
+            GROUP BY name ORDER BY count(award.sender_id) desc  `,
         params,
         function(err, data) {
           if (err) reject(err);

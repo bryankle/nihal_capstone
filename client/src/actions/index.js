@@ -9,10 +9,13 @@ export const getEmployee = callback => async dispatch => {
 };
 export const passwordRecover = (formProps, callback) => async dispatch => {
   try {
-    const response = await axios.post(`${ROOT_URL}/passwordrecovery`, formProps);
+    const response = await axios.post(
+      `${ROOT_URL}/passwordrecovery`,
+      formProps
+    );
     callback();
   } catch (e) {
-    console.log("problem with password recovery")
+    console.log("problem with password recovery");
   }
 };
 
@@ -21,7 +24,7 @@ export const changePassword = (formProps, callback) => async dispatch => {
     const response = await axios.post(`${ROOT_URL}/changepassword`, formProps);
     callback();
   } catch (e) {
-    console.log("problem with changing password")
+    console.log("problem with changing password");
   }
 };
 
@@ -242,7 +245,19 @@ export const getAwardTotalSent = result => async dispatch => {
     //dispatch({ type: GET_EMPLOYEE, payload: 'Must be a user to create award' });
   }
 };
-
+export const getAwardRegion = result => async dispatch => {
+  try {
+    console.log("here in the index.js actions", result);
+    return await axios.get(`${ROOT_URL}/getawardregion`, {
+      params: {}
+    });
+    //callback();
+  } catch (e) {
+    console.log("error creating award");
+    console.log(result);
+    //dispatch({ type: GET_EMPLOYEE, payload: 'Must be a user to create award' });
+  }
+};
 export const signup = (formProps, callback) => async dispatch => {
   // formProps contains { email: '', password: '' }
   try {

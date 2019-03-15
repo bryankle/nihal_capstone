@@ -22,9 +22,10 @@ module.exports = function(app) {
   app.get("/getawardrange", Business.getawardRange);
   app.get("/getawardtotal", Business.getawardTotal);
   app.get("/getawardtotalsent", Business.getawardTotalSent);
+  app.get("/getawardregion", Business.getawardRegion);
   app.get("/getallawards", Award.getallawards);
   app.get("/getfullname", Authentication.getfullname);
   app.put("/changename", Authentication.changename);
-  app.post('/passwordrecovery', Authentication.passwordrecovery);
-  app.post('/changepassword', Authentication.changepassword);
+  app.post("/passwordrecovery", Authentication.passwordrecovery);
+  app.post("/changepassword", Authentication.changepassword);
 };

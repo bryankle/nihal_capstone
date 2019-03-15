@@ -1,9 +1,9 @@
-export function formatChartData(data) {
+export function formatChartData(data, numberSwitch) {
   //var
   for (var i = 0, length = data.length; i < length; i++) {
     console.log("data values", data[i][1]);
-    if (!isNaN(data[i][1])) {
-      data[i][1] = parseInt(data[i][1], 10);
+    if (!isNaN(data[i][numberSwitch])) {
+      data[i][numberSwitch] = parseInt(data[i][numberSwitch], 10);
       console.log("data values", data[i].value1);
       //data[i].value2 = parseFloat(data[i].value2);
     }

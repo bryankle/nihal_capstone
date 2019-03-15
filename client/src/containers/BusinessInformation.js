@@ -108,119 +108,124 @@ class BusinessInformation extends Component {
         >
           {" "}
           <Grid.Column style={{ maxWidth: 450 }}>
-          <Segment stacked>
-            <Header as="h2" color="teal" textAlign="center">
-              Business Information Queries
-            </Header>
-            <div>
-              <ButtonToolbar>
-                <Link to="/busSent">
-                  <Button
-                    as="a"
-                    inverted={!true}
-                    primary={true}
-                    style={{
-                      marginLeft: "0.5em",
-                      marginBottom: ".5em",
-                      width: "300px"
-                    }}
-                  >
-                    Awards Sent By User
-                  </Button>
-                </Link>
-              </ButtonToolbar>
-            </div>
-            <div>
-              <ButtonToolbar>
-                <Link to="/busreceived">
-                  <Button
-                    as="a"
-                    inverted={!true}
-                    primary={true}
-                    style={{
-                      marginLeft: "0.5em",
-                      marginBottom: ".5em",
-                      width: "300px"
-                    }}
-                  >
-                    Awards Received By User
-                  </Button>
-                </Link>
-              </ButtonToolbar>
-            </div>
-            <div>
-              <ButtonToolbar>
-                <Link to="/bustype">
-                  <Button
-                    as="a"
-                    inverted={!true}
-                    primary={true}
-                    style={{
-                      marginLeft: "0.5em",
-                      marginBottom: ".5em",
-                      width: "300px"
-                    }}
-                  >
-                    Award Type Totals
-                  </Button>
-                </Link>
-              </ButtonToolbar>
-            </div>
-            <div>
-              <ButtonToolbar>
-                <Link to="/busmonth">
-                  <Button
-                    as="a"
-                    inverted={!true}
-                    primary={true}
-                    style={{
-                      marginLeft: "0.5em",
-                      marginBottom: ".5em",
-                      width: "300px"
-                    }}
-                  >
-                    Awards Issued by Month
-                  </Button>
-                </Link>
-              </ButtonToolbar>
-            </div>
-            <div>
-              <ButtonToolbar>
-                <Link to="/busrange">
-                  <Button
-                    as="a"
-                    inverted={!true}
-                    primary={true}
-                    style={{
-                      marginLeft: "0.5em",
-                      marginBottom: ".5em",
-                      width: "300px"
-                    }}
-                  >
-                    Awards Issued by Range of Dates
-                  </Button>
-                </Link>
-              </ButtonToolbar>
-            </div>
-            <div>
-              <ButtonToolbar>
-                <Link to="/bustotal">
-                  <Button
-                    as="a"
-                    inverted={!true}
-                    primary={true}
-                    style={{
-                      marginLeft: "0.5em",
-                      marginBottom: ".5em",
-                      width: "300px"
-                    }}
-                  >
-                    Total Awards Received
-                  </Button>
-                </Link>
-              </ButtonToolbar>
-            </div>
-            {/*
+            <Segment stacked>
+              <Header as="h2" color="teal" textAlign="center">
+                Business Information Queries
+              </Header>
+              <div>
+                <ButtonToolbar>
+                  <Link to="/busSent">
+                    <Button
+                      as="b"
+                      inverted={!true}
+                      primary={true}
+                      style={{
+                        marginLeft: "0.5em",
+                        marginBottom: ".5em",
+                        width: "300px"
+                      }}
+                    >
+                      Awards Sent By User
+                    </Button>
+                  </Link>
+                </ButtonToolbar>
+              </div>
+              <div>
+                <ButtonToolbar>
+                  <Link to="/busreceived">
+                    <Button
+                      as="b"
+                      inverted={!true}
+                      primary={true}
+                      style={{
+                        marginLeft: "0.5em",
+                        marginBottom: ".5em",
+                        width: "300px"
+                      }}
+                    >
+                      Awards Received By User
+                    </Button>
+                  </Link>
+                </ButtonToolbar>
+              </div>
+              <div>
+                <ButtonToolbar>
+                  <Link to="/bustype">
+                    <Button
+                      as="b"
+                      inverted={!true}
+                      primary={true}
+                      style={{
+                        marginLeft: "0.5em",
+                        marginBottom: ".5em",
+                        width: "300px"
+                      }}
+                    >
+                      Award Type Totals
+                    </Button>
+                  </Link>
+                </ButtonToolbar>
+              </div>
+              <div>
+                <ButtonToolbar>
+                  <Link to="/busmonth">
+                    <Button
+                      as="b"
+                      inverted={!true}
+                      primary={true}
+                      style={{
+                        marginLeft: "0.5em",
+                        marginBottom: ".5em",
+                        width: "300px"
+                      }}
+                    >
+                      Awards Issued by Month
+                    </Button>
+                  </Link>
+                </ButtonToolbar>
+              </div>
+              <div>
+                <ButtonToolbar>
+                  <Link to="/busrange">
+                    <Button
+                      as="b"
+                      color="teal"
+                      inverted={!true}
+                      primary={true}
+                      style={{
+                        marginLeft: "0.5em",
+                        marginBottom: ".5em",
+                        width: "300px"
+                        // color: "teal"
+                      }}
+                    >
+                      Awards Issued by Range of Dates
+                    </Button>
+                  </Link>
+                </ButtonToolbar>
+              </div>
+              <Header as="h2" color="teal" textAlign="center">
+                Totals With Graphs
+              </Header>
+              <div>
+                <ButtonToolbar>
+                  <Link to="/bustotal">
+                    <Button
+                      as="b"
+                      inverted={!true}
+                      primary={true}
+                      style={{
+                        marginLeft: "0.5em",
+                        marginBottom: ".5em",
+                        width: "300px"
+                      }}
+                    >
+                      Total Awards Received
+                    </Button>
+                  </Link>
+                </ButtonToolbar>
+              </div>
+              {/*
             <Form size="large" onSubmit={handleSubmit(this.onSubmit)}>
               <Segment stacked>
                 {/*
@@ -300,7 +305,7 @@ class BusinessInformation extends Component {
               </Segment>
             </Form>
           */}
-          </Segment>
+            </Segment>
           </Grid.Column>
         </Grid>
       </div>

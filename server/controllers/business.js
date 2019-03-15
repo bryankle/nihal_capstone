@@ -234,6 +234,33 @@ exports.getawardTotalSent = function(req, res) {
       console.log(reject);
     });
 };
+exports.getawardRegion = function(req, res) {
+  const user_id = req.query.user_id;
+  console.log("my user id", user_id);
+  Business.getAwardRegion(user_id)
+    .then(result => {
+      jsonexport(result, function(err, csv) {
+        if (err) return console.log(err);
+        fs.writeFile("./" + "testing" + ".csv", csv, function(err) {
+          if (err) {
+            return console.log(err);
+          }
+
+          console.log("The file was saved!");
+          res.download("./testing.csv", "testing.csv");
+        });
+        console.log("Result of awards", result);
+        //res.send(result);
+
+        //console.log(csv);
+      });
+      //console.log("Result of awards", result);
+      //res.send(result);
+    })
+    .catch(reject => {
+      console.log(reject);
+    });
+};
 /*
 exports.getawardType = function(req, res) {
   const user_id = req.query.user_id;

@@ -10,9 +10,10 @@ const HomepageHeading = ({ mobile }) => (
       content="Nihal Employee Recognition"
       inverted
       style={{
-        color: "#102d60",
-        backgroundColor: "#d6d6d6",
-        opacity: 0.8,
+        color: "#f7f7f7",
+        //backgroundColor: "#d6d6d6",
+        backgroundColor: "teal",
+        opacity: 0.9,
         fontSize: mobile ? "2em" : "4em",
         fontWeight: "normal",
         marginBottom: 0,
@@ -37,8 +38,17 @@ const HomepageHeading = ({ mobile }) => (
       }}
     />
     <Link to="/signin">
-      <Button primary size="huge">
-        Get Started!
+      <Button
+        as="a"
+        inverted={!true}
+        color="teal"
+        style={{
+          marginLeft: "0.5em",
+          marginBottom: ".5em",
+          width: "250px"
+        }}
+      >
+        Get Started
         <Icon name="right arrow" />
       </Button>
     </Link>

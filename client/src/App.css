@@ -1,7 +1,6 @@
 img {
   width: 100%;
 }
-
 .homepage {
   /*position: relative;*/
   background: url("./img/showcase.jpg") no-repeat;
@@ -11,7 +10,15 @@ img {
   margin-top: -10px;
   margin-bottom: -10px;
 }
-
+.renderLinks {
+  /*position: relative;*/
+  background: url("./img/showcase.jpg") no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  margin-top: -10px;
+  margin-bottom: -10px;
+}
 .landing-inner {
   padding-top: 80px;
 }

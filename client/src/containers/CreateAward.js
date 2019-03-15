@@ -80,7 +80,7 @@ class CreateAward extends Component {
       }
 
     onSubmit = (formProps) => {
-        if (formProps.awardType == null || formProps.recipientID == null || formProps.email == null || formProps.date == null || formProps.time == null) return;
+        if (formProps.awardType == null || formProps.recipientID == null || formProps.date == null || formProps.time == null) return;
         formProps.senderID = this.state.user_id;
         if (this.state.hasSignature === false) {
             formProps.sigPath = this.state.trimmedDataURL

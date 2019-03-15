@@ -62,14 +62,14 @@ class ChangeName extends Component {
                 `}</style>
                 <Grid textAlign='center' style={{ height: '100%' }} verticalAlign='middle'>
                     <Grid.Column style={{ maxWidth: 500 }}>
-                        <Header as='h2' color='teal' textAlign='center'>
-                            Your name in our system is {this.state.firstName} {this.state.lastName}.
-                        </Header>
-                        <Header as='h2' color='teal' textAlign='center'>
-                            Use this form to change your name.
-                        </Header>
                         <Form size='large' onSubmit={handleSubmit(this.onSubmit)}>
                             <Segment stacked>
+                                <Header as='h2' color='teal' textAlign='center'>
+                                    Your name in our system is {this.state.firstName} {this.state.lastName}.
+                                </Header>
+                                <Header as='h2' color='teal' textAlign='center'>
+                                    Use this form to change your name.
+                                </Header>
                                 <Field name="firstName" component={semanticFormField} as={Form.Input} icon="user" iconPosition="left" type="text" placeholder="First Name" value={this.state.firstName} />
                                 <Field name="lastName" component={semanticFormField} as={Form.Input} icon="user" iconPosition="left" type="text" placeholder="Last Name" value={this.state.lastName}/>
                                 <Button color='teal' fluid size='large' disabled={this.props.pristine}>

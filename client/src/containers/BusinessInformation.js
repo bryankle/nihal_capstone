@@ -108,6 +108,7 @@ class BusinessInformation extends Component {
         >
           {" "}
           <Grid.Column style={{ maxWidth: 450 }}>
+          <Segment stacked>
             <Header as="h2" color="teal" textAlign="center">
               Business Information Queries
             </Header>
@@ -299,6 +300,7 @@ class BusinessInformation extends Component {
               </Segment>
             </Form>
           */}
+          </Segment>
           </Grid.Column>
         </Grid>
       </div>

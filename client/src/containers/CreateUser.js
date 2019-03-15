@@ -75,11 +75,11 @@ class CreateUser extends Component {
           verticalAlign="middle"
         >
           <Grid.Column style={{ maxWidth: 450 }}>
-            <Header as="h2" color="teal" textAlign="center">
-              Create a user
-            </Header>
             <Form size="large" onSubmit={handleSubmit(this.onSubmit)}>
               <Segment stacked>
+                <Header as="h2" color="teal" textAlign="center">
+                  Create a user
+                </Header>
                 <Field
                   name="first_name"
                   component={semanticFormField}

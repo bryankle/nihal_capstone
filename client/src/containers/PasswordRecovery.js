@@ -31,14 +31,14 @@ class PasswordRecovery extends Component {
         `}</style>
         <Grid textAlign='center' style={{ height: '100%' }} verticalAlign='middle'>
           <Grid.Column style={{ maxWidth: 500 }}>
-            <Header as='h2' color='teal' textAlign='center'>
-              Password Recovery
-            </Header>
-            <Header as='h2' color='teal' textAlign='center'>
-              Please enter your account's email address.
-            </Header>
             <Form size='large' onSubmit={handleSubmit(this.onSubmit)}>
               <Segment stacked>
+                <Header as='h2' color='teal' textAlign='center'>
+                  Password Recovery
+                </Header>
+                <Header as='h2' color='teal' textAlign='center'>
+                  Please enter your account's email address.
+                </Header>
                 <Field name="email" component={semanticFormField} as={Form.Input} icon='mail' iconPosition='left' type="text" placeholder="Email" />
                 <Button color='teal' fluid size='large'>
                   Submit

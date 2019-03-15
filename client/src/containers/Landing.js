@@ -10,10 +10,20 @@ const HomepageHeading = ({ mobile }) => (
       content="Nihal Employee Recognition"
       inverted
       style={{
+        color: "#102d60",
+        backgroundColor: "#d6d6d6",
+        opacity: 0.8,
         fontSize: mobile ? "2em" : "4em",
         fontWeight: "normal",
         marginBottom: 0,
-        marginTop: mobile ? "1.5em" : "3em"
+        marginLeft: 80,
+        marginRight: 80,
+        marginTop: mobile ? "1.5em" : "3em",
+
+        //width: "500px",
+        //textalign: "center",
+        //height: "50px",
+        padding: "30px"
       }}
     />
     <Header

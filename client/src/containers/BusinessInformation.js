@@ -113,22 +113,20 @@ class BusinessInformation extends Component {
                 Business Information Queries
               </Header>
               <div>
-                <ButtonToolbar>
-                  <Link to="/busSent">
-                    <Button
-                      as="b"
-                      inverted={!true}
-                      primary={true}
-                      style={{
-                        marginLeft: "0.5em",
-                        marginBottom: ".5em",
-                        width: "300px"
-                      }}
-                    >
-                      Awards Sent By User
-                    </Button>
-                  </Link>
-                </ButtonToolbar>
+                <Link to="/busSent">
+                  <Button
+                    as="b"
+                    inverted={!true}
+                    primary={true}
+                    style={{
+                      marginLeft: "0.5em",
+                      marginBottom: ".5em",
+                      width: "300px"
+                    }}
+                  >
+                    Awards Sent By User
+                  </Button>
+                </Link>
               </div>
               <div>
                 <ButtonToolbar>
@@ -211,7 +209,7 @@ class BusinessInformation extends Component {
                 <ButtonToolbar>
                   <Link to="/bustotal">
                     <Button
-                      as="b"
+                      color="teal"
                       inverted={!true}
                       primary={true}
                       style={{

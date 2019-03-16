@@ -52,7 +52,9 @@ class BusRange extends Component {
     super();
     this.state = {
       user_id: "",
-      employees: []
+      employees: [],
+      fields: false,
+      fieldError: false
     };
   }
   componentDidMount() {
@@ -95,6 +97,7 @@ class BusRange extends Component {
 
   render() {
     const { handleSubmit } = this.props; // handleSubmit provided by redux form
+    console.log("help", this.state.fields);
 
     return (
       <div className="login-form">
@@ -179,7 +182,10 @@ class BusRange extends Component {
                   iconPosition="left"
                   type="text"
                   placeholder="Award Type"
-                />{" "}
+                  value={this.state.fields}
+                  onChange={this.onInputChange}
+                  error={this.state.fieldError}
+                />
                 Start Date
                 <Field
                   name="beginning"
@@ -211,9 +217,7 @@ class BusRange extends Component {
                   placeholder="Admin or User"
                 />
                 */}
-                <Button color="teal" fluid size="large">
-                  Submit
-                </Button>
+                <Button color="teal">Submit</Button>
               </Segment>
             </Form>
           </Grid.Column>

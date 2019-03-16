@@ -132,7 +132,7 @@ class BusTotal extends Component {
         console.log("new array after the conversion", array2);
         console.log("response says", response.data);
         this.setState({ fetching: false });
-        fileDownload(response.data, "awardtotalsent.csv");
+        fileDownload(response.data, "awardtotalregion.csv");
       });
     }
   };

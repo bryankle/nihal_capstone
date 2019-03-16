@@ -150,7 +150,7 @@ class Navbar extends Component {
         color="grey"
       >
         <Container>
-          <Menu.Item as="a" active>
+          <Menu.Item active>
             <Link to="/">Home</Link>
           </Menu.Item>
           <Menu.Item position="right">{this.renderLinks()}</Menu.Item>

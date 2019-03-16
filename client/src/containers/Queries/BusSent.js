@@ -116,88 +116,27 @@ class BusSent extends Component {
         >
           {" "}
           <Grid.Column style={{ maxWidth: 450 }}>
-            <Header as="h2" color="teal" textAlign="center">
-              Awards Sent By User
-            </Header>
+            <Segment stacked>
+              <Header as="h2" color="teal" textAlign="center">
+                Awards Sent By User
+              </Header>
 
-            <Form size="large" onSubmit={handleSubmit(this.onSubmit)}>
-              <Segment stacked>
-                {/*
-                <Field
-                  name="first_name"
-                  component={semanticFormField}
-                  as={Form.Input}
-                  icon="lock"
-                  iconPosition="left"
-                  type="text"
-                  placeholder="First Name"
-                />
-                <Field
-                  name="last_name"
-                  component={semanticFormField}
-                  as={Form.Input}
-                  icon="lock"
-                  iconPosition="left"
-                  type="text"
-                  placeholder="Last Name"
-                />
-                <Field
-                  name="email"
-                  component={semanticFormField}
-                  as={Form.Input}
-                  icon="mail"
-                  iconPosition="left"
-                  type="text"
-                  placeholder="Email"
-                />
-            */}
+              <Form size="large" onSubmit={handleSubmit(this.onSubmit)}>
                 <Field
                   name="recipientID"
+                  size=""
                   component={semanticFormField}
                   as={Form.Dropdown}
                   options={this.state.employees}
                   type="text"
-                  placeholder="Choose Award Recipient"
+                  placeholder="Choose Award Sender"
                 />
-                {/*
-                <Field
-                  name="password"
-                  component={semanticFormField}
-                  as={Form.Input}
-                  icon="lock"
-                  iconPosition="left"
-                  type="password"
-                  placeholder="Password"
-                />
-                <Field
-                  name="region_id"
-                  component={semanticFormField}
-                  as={Form.Dropdown}
-                  //icon="lock"
-                  options={checkboxOptions}
-                  placeholder="My Dropdown"
-                  iconPosition="left"
-                  type="text"
-                  placeholder="Region"
-                />{" "}
-                <Field
-                  name="admin"
-                  component={semanticFormField}
-                  as={Form.Dropdown}
-                  //icon="lock"
-                  options={adminOptions}
-                  placeholder="My Dropdown"
-                  iconPosition="left"
-                  type="text"
-                  placeholder="Admin or User"
-                />
-                */}
 
                 <Button color="teal" fluid size="large">
                   Submit
                 </Button>
-              </Segment>
-            </Form>
+              </Form>
+            </Segment>
           </Grid.Column>
         </Grid>
       </div>

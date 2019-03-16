@@ -52,7 +52,8 @@ class BusReceived extends Component {
     super();
     this.state = {
       user_id: "",
-      employees: []
+      employees: [],
+      fetching: true
     };
   }
   componentDidMount() {
@@ -81,16 +82,18 @@ class BusReceived extends Component {
     this.props.getAwardsReceived(formProps).then(response => {
       console.log("response says", response.data);
       // TODO: Determine page to redirect to after admin adds user
-      this.props.history.push("/");
+      // this.props.history.push("/");
       fileDownload(response.data, "awardsreceived.csv");
+      this.setState({ fetching: false });
     });
   };
   render() {
     const { handleSubmit } = this.props; // handleSubmit provided by redux form
 
-    return (
-      <div className="login-form">
-        <style>{`
+    if (this.state.fetching == true) {
+      return (
+        <div className="login-form">
+          <style>{`
         body > div,
         body > div > div,
         body > div > div > div.login-form {
@@ -100,20 +103,20 @@ class BusReceived extends Component {
           padding-top: 5em
         }
       `}</style>
-        <Grid
-          textAlign="center"
-          style={{ height: "100%" }}
-          verticalAlign="middle"
-        >
-          {" "}
-          <Grid.Column style={{ maxWidth: 450 }}>
-            <Header as="h2" color="teal" textAlign="center">
-              Awards Received by User
-            </Header>
-
-            <Form size="large" onSubmit={handleSubmit(this.onSubmit)}>
+          <Grid
+            textAlign="center"
+            style={{ height: "100%" }}
+            verticalAlign="middle"
+          >
+            {" "}
+            <Grid.Column style={{ maxWidth: 450 }}>
               <Segment stacked>
-                {/*
+                <Header as="h2" color="teal" textAlign="center">
+                  Awards Received by User
+                </Header>
+
+                <Form size="large" onSubmit={handleSubmit(this.onSubmit)}>
+                  {/*
                 <Field
                   name="first_name"
                   component={semanticFormField}
@@ -142,15 +145,16 @@ class BusReceived extends Component {
                   placeholder="Email"
                 />
             */}
-                <Field
-                  name="recipientID"
-                  component={semanticFormField}
-                  as={Form.Dropdown}
-                  options={this.state.employees}
-                  type="text"
-                  placeholder="Choose Award Recipient"
-                />
-                {/*
+                  <Field
+                    name="recipientID"
+                    component={semanticFormField}
+                    as={Form.Dropdown}
+                    size="lg"
+                    options={this.state.employees}
+                    type="text"
+                    placeholder="Choose Award Recipient"
+                  />
+                  {/*
                 <Field
                   name="password"
                   component={semanticFormField}
@@ -184,15 +188,45 @@ class BusReceived extends Component {
                 />
                 */}
 
-                <Button color="teal" fluid size="large">
-                  Submit
-                </Button>
+                  <Button color="teal" fluid size="large">
+                    Submit
+                  </Button>
+                </Form>
               </Segment>
-            </Form>
-          </Grid.Column>
-        </Grid>
-      </div>
-    );
+            </Grid.Column>
+          </Grid>
+        </div>
+      );
+    } else {
+      return (
+        <div className="login-form">
+          <style>{`
+                  body > div,
+                  body > div > div,
+                  body > div > div > div.login-form {
+                    height: 100%;
+                  }
+                  .login-form {
+                    padding-top: 5em
+                  }
+                `}</style>
+          <Grid
+            textAlign="center"
+            style={{ height: "100%" }}
+            verticalAlign="middle"
+          >
+            {" "}
+            <Grid.Column style={{ maxWidth: 450 }}>
+              <Segment stacked>
+                <Header as="h2" color="teal" textAlign="center">
+                  Downloading CSV File
+                </Header>
+              </Segment>
+            </Grid.Column>
+          </Grid>
+        </div>
+      );
+    }
   }
 }
 

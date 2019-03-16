@@ -52,7 +52,9 @@ class BusRange extends Component {
     super();
     this.state = {
       user_id: "",
-      employees: []
+      employees: [],
+      fields: false,
+      fieldError: false
     };
   }
   componentDidMount() {
@@ -95,6 +97,7 @@ class BusRange extends Component {
 
   render() {
     const { handleSubmit } = this.props; // handleSubmit provided by redux form
+    console.log("help", this.state.fields);
 
     return (
       <div className="login-form">
@@ -115,12 +118,12 @@ class BusRange extends Component {
         >
           {" "}
           <Grid.Column style={{ maxWidth: 450 }}>
-            <Header as="h2" color="teal" textAlign="center">
-              Award Type Issued by Range of Dates
-            </Header>
+            <Segment stacked>
+              <Header as="h2" color="teal" textAlign="center">
+                Award Type Issued by Range of Dates
+              </Header>
 
-            <Form size="large" onSubmit={handleSubmit(this.onSubmit)}>
-              <Segment stacked>
+              <Form size="large" onSubmit={handleSubmit(this.onSubmit)}>
                 {/*
                 <Field
                   name="first_name"
@@ -179,7 +182,10 @@ class BusRange extends Component {
                   iconPosition="left"
                   type="text"
                   placeholder="Award Type"
-                />{" "}
+                  value={this.state.fields}
+                  onChange={this.onInputChange}
+                  error={this.state.fieldError}
+                />
                 Start Date
                 <Field
                   name="beginning"
@@ -211,11 +217,9 @@ class BusRange extends Component {
                   placeholder="Admin or User"
                 />
                 */}
-                <Button color="teal" fluid size="large">
-                  Submit
-                </Button>
-              </Segment>
-            </Form>
+                <Button color="teal">Submit</Button>
+              </Form>
+            </Segment>
           </Grid.Column>
         </Grid>
       </div>

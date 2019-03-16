@@ -12,6 +12,7 @@ import {
   Segment,
   Input
 } from "semantic-ui-react";
+import { Text } from "react";
 import * as actions from "../../actions";
 import { CSVToArray } from "../../actions/helpers";
 import { formatChartData } from "../../actions/helpers";
@@ -29,13 +30,19 @@ const checkboxOptions = [
     value: "1",
     text: "Awards Sent",
     key: "1"
+  },
+  {
+    value: "2",
+    text: "Region Recipients",
+    key: "2"
   }
 ];
 const options = {
   title: "Total Business Awards Received by User",
   //hAxis: { title: "Age", viewWindow: { min: 0, max: 15 } },
   // vAxis: { title: "Weight", viewWindow: { min: 0, max: 15 } },
-  legend: "none"
+  legend: "none",
+  colors: ["teal"]
 };
 
 var array = [];
@@ -79,7 +86,7 @@ class BusTotal extends Component {
         array = CSVToArray(response.data);
 
         //formatChartData(data)
-        var array2 = formatChartData(array);
+        var array2 = formatChartData(array, 1);
         //var array2 = doIt(array);
         this.setState({ results: array2 });
         console.log("this state results", this.state.results);
@@ -98,7 +105,7 @@ class BusTotal extends Component {
         array = CSVToArray(response.data);
 
         //formatChartData(data)
-        var array2 = formatChartData(array);
+        var array2 = formatChartData(array, 1);
         //var array2 = doIt(array);
         this.setState({ results: array2 });
         console.log("this state results", this.state.results);
@@ -107,6 +114,25 @@ class BusTotal extends Component {
         console.log("response says", response.data);
         this.setState({ fetching: false });
         fileDownload(response.data, "awardtotalsent.csv");
+      });
+    }
+    if (formProps.awardsReceived == 2) {
+      console.log("hello you selected sent");
+
+      options.title = "Received Awards by Region";
+      this.props.getAwardRegion().then(response => {
+        array = CSVToArray(response.data);
+
+        //formatChartData(data)
+        var array2 = formatChartData(array, 1);
+        //var array2 = doIt(array);
+        this.setState({ results: array2 });
+        console.log("this state results", this.state.results);
+        console.log("new array original", array);
+        console.log("new array after the conversion", array2);
+        console.log("response says", response.data);
+        this.setState({ fetching: false });
+        fileDownload(response.data, "awardtotalregion.csv");
       });
     }
   };
@@ -150,12 +176,12 @@ class BusTotal extends Component {
           >
             {" "}
             <Grid.Column style={{ maxWidth: 450 }}>
-              <Header as="h2" color="teal" textAlign="center">
-                Total Awards Received
-              </Header>
+              <Segment stacked>
+                <Header as="h2" color="teal" textAlign="center">
+                  Total Awards Received
+                </Header>
 
-              <Form size="large" onSubmit={handleSubmit(this.onSubmit)}>
-                <Segment stacked>
+                <Form size="large" onSubmit={handleSubmit(this.onSubmit)}>
                   <Field
                     name="awardsReceived"
                     component={semanticFormField}
@@ -166,15 +192,33 @@ class BusTotal extends Component {
                     iconPosition="left"
                     type="text"
                     placeholder="Award Type"
-                  />{" "}
+                    onChangeText={text => this.setState({ text })}
+                    value={this.state.text}
+                  />
+                  {!!this.state.nameError && (
+                    <Text style={{ color: "red" }}>{this.state.nameError}</Text>
+                  )}{" "}
                   {
                     //<div>{this.props.errorMessage}</div>}
                   }
-                  <Button color="teal" fluid size="large">
+                  <Button
+                    color="teal"
+                    fluid
+                    size="large"
+                    onPress={() => {
+                      if (this.state.text.trim() === "") {
+                        this.setState(() => ({
+                          nameError: "First name required."
+                        }));
+                      } else {
+                        this.setState(() => ({ nameError: null }));
+                      }
+                    }}
+                  >
                     Submit
                   </Button>
-                </Segment>
-              </Form>
+                </Form>
+              </Segment>
             </Grid.Column>
           </Grid>
         </div>

@@ -162,12 +162,11 @@ class BusMonth extends Component {
         >
           {" "}
           <Grid.Column style={{ maxWidth: 450 }}>
-            <Header as="h2" color="teal" textAlign="center">
-              Awards Issued By Month
-            </Header>
-
-            <Form size="large" onSubmit={handleSubmit(this.onSubmit)}>
-              <Segment stacked>
+            <Segment stacked>
+              <Header as="h2" color="teal" textAlign="center">
+                Awards Issued By Month
+              </Header>
+              <Form size="large" onSubmit={handleSubmit(this.onSubmit)}>
                 {/*
                 <Field
                   name="first_name"
@@ -243,8 +242,8 @@ class BusMonth extends Component {
                 <Button color="teal" fluid size="large">
                   Submit
                 </Button>
-              </Segment>
-            </Form>
+              </Form>{" "}
+            </Segment>
           </Grid.Column>
         </Grid>
       </div>

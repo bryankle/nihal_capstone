@@ -134,6 +134,21 @@ module.exports = {
       );
     });
   },
+  getAwardRegion: function(user_id) {
+    return new Promise(function(resolve, reject) {
+      const params = [user_id];
+      mysql.pool.query(
+        `SELECT region.region_name,(count(user.region_id)) as "Region Award Recipient Totals" FROM
+            region INNER JOIN user on region.region_id = user.region_id
+            GROUP BY region.region_name ORDER BY count(user.region_id) desc  `,
+        params,
+        function(err, data) {
+          if (err) reject(err);
+          resolve(data);
+        }
+      );
+    });
+  },
   deleteAwards: function(award_ids) {
     return new Promise(function(resolve, reject) {
       const params = [award_ids];

@@ -118,12 +118,12 @@ class BusRange extends Component {
         >
           {" "}
           <Grid.Column style={{ maxWidth: 450 }}>
-            <Header as="h2" color="teal" textAlign="center">
-              Award Type Issued by Range of Dates
-            </Header>
+            <Segment stacked>
+              <Header as="h2" color="teal" textAlign="center">
+                Award Type Issued by Range of Dates
+              </Header>
 
-            <Form size="large" onSubmit={handleSubmit(this.onSubmit)}>
-              <Segment stacked>
+              <Form size="large" onSubmit={handleSubmit(this.onSubmit)}>
                 {/*
                 <Field
                   name="first_name"
@@ -218,8 +218,8 @@ class BusRange extends Component {
                 />
                 */}
                 <Button color="teal">Submit</Button>
-              </Segment>
-            </Form>
+              </Form>
+            </Segment>
           </Grid.Column>
         </Grid>
       </div>

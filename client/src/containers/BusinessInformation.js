@@ -117,7 +117,7 @@ class BusinessInformation extends Component {
                   <Button
                     as="b"
                     inverted={!true}
-                    primary={true}
+                    color="teal"
                     style={{
                       marginLeft: "0.5em",
                       marginBottom: ".5em",
@@ -129,30 +129,27 @@ class BusinessInformation extends Component {
                 </Link>
               </div>
               <div>
-                <ButtonToolbar>
-                  <Link to="/busreceived">
-                    <Button
-                      as="b"
-                      inverted={!true}
-                      primary={true}
-                      style={{
-                        marginLeft: "0.5em",
-                        marginBottom: ".5em",
-                        width: "300px"
-                      }}
-                    >
-                      Awards Received By User
-                    </Button>
-                  </Link>
-                </ButtonToolbar>
+                <Link to="/busreceived">
+                  <Button
+                    inverted={!true}
+                    color="teal"
+                    style={{
+                      marginLeft: "0.5em",
+                      marginBottom: ".5em",
+                      width: "300px"
+                    }}
+                  >
+                    Awards Received By User!
+                  </Button>
+                </Link>
               </div>
               <div>
                 <ButtonToolbar>
                   <Link to="/bustype">
                     <Button
                       as="b"
+                      color="teal"
                       inverted={!true}
-                      primary={true}
                       style={{
                         marginLeft: "0.5em",
                         marginBottom: ".5em",
@@ -170,7 +167,7 @@ class BusinessInformation extends Component {
                     <Button
                       as="b"
                       inverted={!true}
-                      primary={true}
+                      color="teal"
                       style={{
                         marginLeft: "0.5em",
                         marginBottom: ".5em",
@@ -189,7 +186,6 @@ class BusinessInformation extends Component {
                       as="b"
                       color="teal"
                       inverted={!true}
-                      primary={true}
                       style={{
                         marginLeft: "0.5em",
                         marginBottom: ".5em",
@@ -211,7 +207,6 @@ class BusinessInformation extends Component {
                     <Button
                       color="teal"
                       inverted={!true}
-                      primary={true}
                       style={{
                         marginLeft: "0.5em",
                         marginBottom: ".5em",

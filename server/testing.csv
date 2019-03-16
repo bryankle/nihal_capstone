@@ -1,6 +1,8 @@
-award_id,name,award_name,date
-3,,Employee of the Day,02/28/2019
-4,,Employee of the Day,02/28/2019
-14,Bryan Konshak,Employee of the Day,03/04/2019
-9,b k,Employee of the Day,03/10/2019
-12,Bryan Konshak,Employee of the Day,03/12/2019
+award_name,date
+Employee of Century,03/14/2019
+Employee of the Day,03/12/2019
+Employee of the Day,03/04/2019
+Employee of the Day,02/10/2019
+Employee of the Day,12/06/1980
+Employee of the Day,12/06/1980
+Employee of the Week,12/06/1980

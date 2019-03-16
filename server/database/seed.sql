@@ -44,7 +44,7 @@ INSERT INTO user (email, password, first_name, last_name, region_id, created_on,
 ('admin@admin.com', '$2a$10$RyDsLR85bZxm5mqm7Xeh8.rzENrSTC6RvTg.MfUNW8NZA1k6aP3uy', NULL, NULL, NULL, NULL, 1),
 ('a@a.com', '$2a$10$EiLglk8ytUdhGZ0dCXrsl.jkHlaJDXdouXBMGiPk7BcacSiYVYpsC', 'Sample', 'Employee', 1, '2019-03-16', 0);
 
--- Award table
+-- Award table 
 CREATE TABLE `award` (
     `award_id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `recipient_id` INT(11) NOT NULL,

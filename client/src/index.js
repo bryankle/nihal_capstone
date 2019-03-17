@@ -14,6 +14,7 @@ import Signup from "./containers/Signup";
 import Signout from "./containers/Signout";
 import Feature from "./containers/Feature";
 import AdminFeature from "./containers/AdminPage";
+import AdminTable from './containers/AdminTable';
 import CreateUser from "./containers/CreateUser";
 import BusinessInformation from "./containers/BusinessInformation";
 import HomepageHeading from "./containers/Landing";
@@ -74,7 +75,7 @@ const routing = (
           <Route path='/passwordrecovery' component={PasswordRecovery} />
           <Route path='/changepassword' component={ChangePassword} />
           <Route path='/editinfo' component={EditInfo} />
-          {/* <Route path='/admin-table' component={AdminTable} />      */}
+          <Route path='/admin-table' component={AdminTable} />     
         </Homepage>
       </Router>
     </PersistGate>

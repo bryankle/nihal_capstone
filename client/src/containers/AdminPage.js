@@ -5,7 +5,7 @@ import requireAdmin from "./requireAdmin";
 class AdminPage extends Component {
   render() {
     return (
-      <div style={{ "padding-top": "5em" }}>Welcome to the admin page!</div>
+      <div style={{ "paddingTop": "5em" }}>Welcome to the admin page!</div>
     );
   }
 }

@@ -1,12 +1,18 @@
 import axios from "axios";
-import { AUTH_USER, AUTH_ERROR } from "./types";
+import { AUTH_USER, AUTH_ERROR, ADMIN_ERROR, GET_EMPLOYEE } from "./types";
 import { ROOT_URL } from "../constants";
 
-export const getEmployee = callback => async dispatch => {
+export const getEmployee = (callback) => async dispatch => {
+  console.log('getEmployee running from actions');
   try {
-    const response = await axios.get(`${ROOT_URL}/employee`);
-  } catch (e) {}
-};
+      const response = await axios.get(`${ROOT_URL}/employee`);
+      console.log('response', response);
+      dispatch({ type: GET_EMPLOYEE, users: response.data });
+  }
+  catch(e) {
+      dispatch({ type: ADMIN_ERROR, payload: 'Unable to retrieve users' });
+  }
+}
 export const passwordRecover = (formProps, callback) => async dispatch => {
   try {
     const response = await axios.post(
@@ -104,6 +110,7 @@ export const deleteAwards = (award_ids, callback) => async dispatch => {
 
 export const createUser = (formProps, callback) => async dispatch => {
   try {
+    console.log('formProps', formProps);
     const response = await axios.post(`${ROOT_URL}/signup`, formProps);
     // dispatch({});
     callback();

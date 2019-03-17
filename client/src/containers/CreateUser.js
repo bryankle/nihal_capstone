@@ -17,29 +17,29 @@ import semanticFormField from "../components/SemanticForm";
 import requireAdmin from "./requireAdmin";
 const checkboxOptions = [
   {
-    value: "1",
+    value: 2,
     text: "East",
-    key: "1"
-  },
-  {
-    value: "2",
-    text: "Central",
     key: "2"
   },
   {
-    value: "3",
+    value: 12,
+    text: "Central",
+    key: "12"
+  },
+  {
+    value: 22,
     text: "West",
-    key: "3"
+    key: "22"
   }
 ];
 const adminOptions = [
   {
-    value: "0",
+    value: 0,
     text: "User",
     key: "0"
   },
   {
-    value: "1",
+    value: 1,
     text: "Admin",
     key: "1"
   }

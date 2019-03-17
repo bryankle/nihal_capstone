@@ -1,15 +1,20 @@
 const config = require("../config");
 const jwt = require("jwt-simple");
 const User = require("../database/queries/user");
+const Admin = require("../database/queries/admin");
 const pw = require("./passwordRecoverEmail");
-
-
 function tokenForUser(user) {
   const timestamp = new Date().getTime();
   return jwt.encode({ sub: user.insertId, iat: timestamp }, config.secret);
 }
 
-exports.getEmployee = function(req, res, next) {};
+exports.getEmployee = function(req, res, next) {
+  // res.send("Hello World");
+  Admin.getAllEmployees()
+    .then(employees => {
+      res.send(employees);
+    })
+};
 
 exports.signin = function(req, res, next) {
   // User has already had their email and password authorized, only a token is required
@@ -32,6 +37,12 @@ exports.signup = function(req, res, next) {
   const last_name = req.body.last_name;
   const region_id = req.body.region_id;
   const admin = req.body.admin;
+  console.log('email', email);
+  console.log('password', password);
+  console.log('first_name', first_name);
+  console.log('last_name',last_name);
+  console.log('region_id', region_id);
+  console.log('admin', admin);
   // TODO - Add checks for other sign up information once user schema is updated from null
   if (!email || !password) {
     return res

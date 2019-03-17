@@ -1,13 +1,20 @@
 const config = require("../config");
 const jwt = require("jwt-simple");
 const User = require("../database/queries/user");
+const Admin = require("../database/queries/admin");
 const pw = require("./passwordRecoverEmail");
 function tokenForUser(user) {
   const timestamp = new Date().getTime();
   return jwt.encode({ sub: user.insertId, iat: timestamp }, config.secret);
 }
 
-exports.getEmployee = function(req, res, next) {};
+exports.getEmployee = function(req, res, next) {
+  // res.send("Hello World");
+  Admin.getAllEmployees()
+    .then(employees => {
+      res.send(employees);
+    })
+};
 
 exports.signin = function(req, res, next) {
   // User has already had their email and password authorized, only a token is required

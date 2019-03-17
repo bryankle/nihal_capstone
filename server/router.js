@@ -28,3 +28,4 @@ module.exports = function(app) {
   app.put("/changename", Authentication.changename);
   app.post("/passwordrecovery", Authentication.passwordrecovery);
   app.post("/changepassword", Authentication.changepassword);
+};

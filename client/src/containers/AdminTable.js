@@ -83,7 +83,7 @@ class AdminTable extends Component {
         </Table.Row>
       )
     })
-    console.log('rows', this.rows);
+    console.log('rows', rows);
     console.log('props', this.props);
       return (
           <div style={{'padding-top': '5em'}}>Welcome to the admin table.

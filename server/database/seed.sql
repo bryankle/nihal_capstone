@@ -6,9 +6,9 @@ CREATE TABLE `region` (
 
 -- Seed data for region table
 INSERT INTO region (region_name) VALUES
-('North Ameriaca'),
-('South America'),
-('Asia');
+('East'),
+('Central'),
+('West');
 
 -- Award type table
 CREATE TABLE `award_type` (
@@ -40,24 +40,22 @@ CREATE TABLE `user` (
     `admin` INT(11) DEFAULT 0
 );
 
-INSERT INTO user (email, password, admin) VALUES
-('admin@admin.com', '$2a$10$RyDsLR85bZxm5mqm7Xeh8.rzENrSTC6RvTg.MfUNW8NZA1k6aP3uy', 1),
-('a@a.com', '$2a$10$EiLglk8ytUdhGZ0dCXrsl.jkHlaJDXdouXBMGiPk7BcacSiYVYpsC', 0);
+INSERT INTO user (email, password, first_name, last_name, region_id, created_on, admin) VALUES
+('admin@admin.com', '$2a$10$RyDsLR85bZxm5mqm7Xeh8.rzENrSTC6RvTg.MfUNW8NZA1k6aP3uy', NULL, NULL, NULL, NULL, 1),
+('a@a.com', '$2a$10$EiLglk8ytUdhGZ0dCXrsl.jkHlaJDXdouXBMGiPk7BcacSiYVYpsC', 'Sample', 'Employee', 1, '2019-03-16', 0);
 
--- Award table
+-- Award table 
 CREATE TABLE `award` (
     `award_id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `recipient_id` INT(11) NOT NULL,
     CONSTRAINT `fk_recipient_id`
-    FOREIGN KEY(`recipient_id`) REFERENCES `user` (`user_id`),
+    FOREIGN KEY(`recipient_id`) REFERENCES `user` (`user_id`) ON DELETE CASCADE,
     `sender_id` INT(11) NOT NULL,
     CONSTRAINT `fk_sender_id`
-    FOREIGN KEY(`sender_id`) REFERENCES `user` (`user_id`),
+    FOREIGN KEY(`sender_id`) REFERENCES `user` (`user_id`) ON DELETE CASCADE,
     `type` INT(11) NOT NULL,
     CONSTRAINT `fk_type`
     FOREIGN KEY(`type`) REFERENCES `award_type` (`award_type_id`),
-    `award_date` DATE NOT NULL
+    `award_date` DATE NOT NULL,
+    `award_time` TIME NOT NULL
 );
-
-INSERT INTO award (recipient_id, sender_id, type, award_date) VALUES
-(1, 2, 1, now());

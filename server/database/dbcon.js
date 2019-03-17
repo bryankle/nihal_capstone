@@ -9,3 +9,13 @@ const pool = mysql.createConnection({
 module.exports.pool = pool;
 
 
+
+// const mysql = require("mysql");
+// const pool = mysql.createConnection({
+//   connectionLimit: 10,
+//   host: "127.0.0.1",
+//   user: "root",
+//   password: "password",
+//   database: "nihal_final"
+// });
+// module.exports.pool = pool;

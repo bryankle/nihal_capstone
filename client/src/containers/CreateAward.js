@@ -10,19 +10,19 @@ import SignatureCanvas from 'react-signature-canvas'
 
 const awardTypeOptions = [
     {
-      value: "1",
-      text: "Employee of the Day",
-      key: "1"
-    },
-    {
       value: "2",
-      text: "Employee of the Week",
+      text: "Employee of the Day",
       key: "2"
     },
     {
-      value: "3",
+      value: "12",
+      text: "Employee of the Week",
+      key: "12"
+    },
+    {
+      value: "22",
       text: "Employee of the Century",
-      key: "3"
+      key: "22"
     }
   ];
 

@@ -110,6 +110,7 @@ export const deleteAwards = (award_ids, callback) => async dispatch => {
 
 export const createUser = (formProps, callback) => async dispatch => {
   try {
+    console.log('formProps', formProps);
     const response = await axios.post(`${ROOT_URL}/signup`, formProps);
     // dispatch({});
     callback();

@@ -22,24 +22,24 @@ const checkboxOptions = [
     key: "2"
   },
   {
-    value: "12",
+    value: 12,
     text: "Central",
     key: "12"
   },
   {
-    value: "22",
+    value: 22,
     text: "West",
     key: "22"
   }
 ];
 const adminOptions = [
   {
-    value: "0",
+    value: 0,
     text: "User",
     key: "0"
   },
   {
-    value: "1",
+    value: 1,
     text: "Admin",
     key: "1"
   }
@@ -78,7 +78,7 @@ class CreateUser extends Component {
             <Form size="large" onSubmit={handleSubmit(this.onSubmit)}>
               <Segment stacked>
                 <Header as="h2" color="teal" textAlign="center">
-                  Create a user TEST
+                  Create a user
                 </Header>
                 <Field
                   name="first_name"

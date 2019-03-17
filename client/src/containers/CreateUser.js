@@ -78,7 +78,7 @@ class CreateUser extends Component {
             <Form size="large" onSubmit={handleSubmit(this.onSubmit)}>
               <Segment stacked>
                 <Header as="h2" color="teal" textAlign="center">
-                  Create a user
+                  Create a user TEST
                 </Header>
                 <Field
                   name="first_name"

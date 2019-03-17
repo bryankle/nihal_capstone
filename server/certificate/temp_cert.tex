@@ -2,8 +2,7 @@
 \usepackage[landscape]{geometry}
 \usepackage{color}
 \usepackage{graphicx}
-\usepackage{fix-cm}
-\usepackage{wallpaper}
+\usepackage{fix-cm} 
 \pagenumbering{gobble}
 
 \makeatletter
@@ -12,9 +11,21 @@
 \makeatother    
 \definecolor{cyan}{RGB}{0, 153, 224}
 
-\begin{document}
+\usepackage{eso-pic}
+\newcommand\BackgroundPic{%
+\put(0,0){%
+\parbox[b][\paperheight]{\paperwidth}{%
+\vfill
+\centering
+\includegraphics[width=1\paperwidth, height=1\paperheight]{C:/Users/Krista/Desktop/CSC/Capstone/server/certificate/bg.png}
+\vfill
+}}}
 
-\TileWallPaper{1\paperwidth}{1\paperheight}{/Users/bryan/Documents/nihal_capstone/server/certificate/bg.png}
+
+
+\begin{document}
+\AddToShipoutPicture*{\BackgroundPic}
+% \TileWallPaper{1\paperwidth}{1\paperheight}{C:/Users/Krista/Desktop/CSC/Capstone/server/certificate/bg.png}
 
 \begin{center}
     {\itshape \color{cyan} \HUGE {Employee of the Week}}
@@ -24,23 +35,23 @@
 
 \begin{center}
         \Huge Presented to: 
-        \presented {\underline{Bryan Konshak}}
+        \presented {\underline{Growl Tiger}}
 \end{center}
 
 \vspace{7mm}
 
 \begin{center}
-    \Huge \underline{Bryan Le} thanks you for your exceptional performance!
+    \Huge \underline{Steve Irwin} thanks you for your exceptional performance!
 \end{center}
 
 \vspace{18mm}
 
 \begin{center}
     \begin{tabular}{ll}
-        \makebox[2.5in]{\includegraphics[width=35mm, height=20mm]{/Users/bryan/Documents/nihal_capstone/server/certificate/signatures/392.png}}
+        \makebox[2.5in]{\includegraphics[width=35mm, height=20mm]{C:/Users/Krista/Desktop/CSC/Capstone/server/certificate/signatures/sigpad.png}}
     \end{tabular}\hspace{2.3in}
     \begin{tabular}{ll}
-        \makebox[2.5in]{\Large 11/11/1111}
+        \makebox[2.5in]{\Large 03/17/2019}
     \end{tabular}
 \end{center}
 

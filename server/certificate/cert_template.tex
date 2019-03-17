@@ -2,8 +2,7 @@
 \usepackage[landscape]{geometry}
 \usepackage{color}
 \usepackage{graphicx}
-\usepackage{fix-cm}    
-\usepackage{wallpaper}
+\usepackage{fix-cm} 
 \pagenumbering{gobble}
 
 \makeatletter
@@ -12,9 +11,21 @@
 \makeatother    
 \definecolor{cyan}{RGB}{0, 153, 224}
 
-\begin{document}
+\usepackage{eso-pic}
+\newcommand\BackgroundPic{%
+\put(0,0){%
+\parbox[b][\paperheight]{\paperwidth}{%
+\vfill
+\centering
+\includegraphics[width=1\paperwidth, height=1\paperheight]{BACKGROUND_IMG}
+\vfill
+}}}
 
-\TileWallPaper{1\paperwidth}{1\paperheight}{BACKGROUND_IMG}
+
+
+\begin{document}
+\AddToShipoutPicture*{\BackgroundPic}
+% \TileWallPaper{1\paperwidth}{1\paperheight}{BACKGROUND_IMG}
 
 \begin{center}
     {\itshape \color{cyan} \HUGE {TYPE_AWARD}}

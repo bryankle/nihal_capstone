@@ -77,10 +77,10 @@ class AdminTable extends Component {
           <Table.Cell>{first_name === null ? 'None' : first_name} </Table.Cell>
           <Table.Cell>{last_name === null ? 'None' : last_name} </Table.Cell>
           <Table.Cell>{region_id} </Table.Cell>
-          <Table.Cell>
+          {/* <Table.Cell>
             <Button primary>Edit</Button>
             <Button negative>Delete</Button>
-          </Table.Cell>
+          </Table.Cell> */}
         </Table.Row>
       )
     })
@@ -94,11 +94,12 @@ class AdminTable extends Component {
               <Table.Header>
                 <Table.Row>
                   <Table.HeaderCell>Employee ID</Table.HeaderCell>
+                  <Table.HeaderCell>Email</Table.HeaderCell>
                   <Table.HeaderCell>First Name</Table.HeaderCell>
                   <Table.HeaderCell>Last Name</Table.HeaderCell>
                   <Table.HeaderCell>Region</Table.HeaderCell>
-                  <Table.HeaderCell>Admin</Table.HeaderCell>
-                  <Table.HeaderCell>Operation</Table.HeaderCell>
+                  {/* <Table.HeaderCell>Admin</Table.HeaderCell> */}
+                  {/* <Table.HeaderCell>Operation</Table.HeaderCell> */}
                 </Table.Row>
               </Table.Header>
           
@@ -117,9 +118,9 @@ class AdminTable extends Component {
                       <Menu.Item as='a'>2</Menu.Item>
                       <Menu.Item as='a'>3</Menu.Item>
                       <Menu.Item as='a'>4</Menu.Item>
-                      <Menu.Item as='a' icon>
+                      {/* <Menu.Item as='a' icon>
                         <Icon name='chevron right' />
-                      </Menu.Item>
+                      </Menu.Item> */}
                     </Menu>
                   </Table.HeaderCell>
                 </Table.Row>

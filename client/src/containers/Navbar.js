@@ -25,7 +25,7 @@ class Navbar extends Component {
                 Admin Table
               </Button>
             </Link>
-            <Link to="/admin-feature">
+            {/* <Link to="/admin-feature">
               <Button
                 as="a"
                 inverted={!true}
@@ -34,7 +34,7 @@ class Navbar extends Component {
               >
                 Admin Feature
               </Button>
-            </Link>
+            </Link> */}
             <Link to="/create-user">
               <Button
                 as="a"

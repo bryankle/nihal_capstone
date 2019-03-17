@@ -1,26 +1,14 @@
-<<<<<<< HEAD
-const config = require('../config');
-const jwt = require('jwt-simple');
-const User = require('../database/queries/user');
-// const Employee = require('../database/queries')
-=======
 const config = require("../config");
 const jwt = require("jwt-simple");
 const User = require("../database/queries/user");
 const pw = require("./passwordRecoverEmail");
-
->>>>>>> origin/master
-
 function tokenForUser(user) {
   const timestamp = new Date().getTime();
   return jwt.encode({ sub: user.insertId, iat: timestamp }, config.secret);
 }
 
-<<<<<<< HEAD
-=======
 exports.getEmployee = function(req, res, next) {};
 
->>>>>>> origin/master
 exports.signin = function(req, res, next) {
   // User has already had their email and password authorized, only a token is required
 

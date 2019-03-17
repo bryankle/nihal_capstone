@@ -66,24 +66,24 @@ class AdminTable extends Component {
   }
   render() {
 
-    const rows = this.props.users.map(user => {
-      const { user_id, email, first_name, last_name, region_id } = user;
-      console.log(user_id, email, first_name, last_name, region_id);
-      return (
-        <Table.Row>
-          <Table.Cell>{user_id}</Table.Cell>
-          <Table.Cell>{email}</Table.Cell>
-          <Table.Cell>{first_name === null ? 'None' : first_name} </Table.Cell>
-          <Table.Cell>{last_name === null ? 'None' : last_name} </Table.Cell>
-          <Table.Cell>{region_id} </Table.Cell>
-          <Table.Cell>
-            <Button primary>Edit</Button>
-            <Button negative>Delete</Button>
-          </Table.Cell>
-        </Table.Row>
-      )
-    })
-    console.log('rows', rows);
+    // const rows = this.props.users.map(user => {
+    //   const { user_id, email, first_name, last_name, region_id } = user;
+    //   console.log(user_id, email, first_name, last_name, region_id);
+    //   return (
+    //     <Table.Row>
+    //       <Table.Cell>{user_id}</Table.Cell>
+    //       <Table.Cell>{email}</Table.Cell>
+    //       <Table.Cell>{first_name === null ? 'None' : first_name} </Table.Cell>
+    //       <Table.Cell>{last_name === null ? 'None' : last_name} </Table.Cell>
+    //       <Table.Cell>{region_id} </Table.Cell>
+    //       <Table.Cell>
+    //         <Button primary>Edit</Button>
+    //         <Button negative>Delete</Button>
+    //       </Table.Cell>
+    //     </Table.Row>
+    //   )
+    // })
+    // console.log('rows', rows);
     console.log('props', this.props);
       return (
           <div style={{'padding-top': '5em'}}>Welcome to the admin table.
@@ -103,7 +103,7 @@ class AdminTable extends Component {
               </Table.Header>
           
               <Table.Body>
-                {rows}
+                {/* {rows} */}
               </Table.Body>
           
               <Table.Footer>

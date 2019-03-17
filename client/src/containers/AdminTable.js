@@ -65,7 +65,7 @@ class AdminTable extends Component {
     this.props.getEmployee();
   }
   render() {
-  
+    console.log('props', this.props.users);
     const rows = this.props.users.map(user => {
       console.log(user)
       const { user_id, email, first_name, last_name, region_id } = user;
@@ -85,7 +85,6 @@ class AdminTable extends Component {
       )
     })
     // console.log('rows', rows);
-    console.log('props', this.props.users);
       return (
           <div style={{'padding-top': '5em'}}>Welcome to the admin table.
      

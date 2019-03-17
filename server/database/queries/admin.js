@@ -11,10 +11,10 @@ module.exports =  {
       })
     })
   },
-  deleteEmployee: function() {
+  deleteEmployee: function(employeeId) {
     return new Promise(function*(resolve, reject) {
-      const params = [email];
-      mysql.pool.query('DELETE * FROM user WHERE user_id=?', params, 
+      // const params = [email];
+      mysql.pool.query('DELETE * FROM user WHERE user_id=?', employeeId, 
       function(err, data) {
         if (err) reject(err);
         resolve(data);

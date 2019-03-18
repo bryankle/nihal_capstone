@@ -2,6 +2,7 @@ const Business = require("../database/queries/business");
 const cert = require("../certificate/createCertificate");
 var jsonexport = require("jsonexport");
 const fs = require("fs");
+const User = require("../database/queries/user");
 
 exports.getemployees = function(req, res) {
   Business.getEmployees()
@@ -94,6 +95,47 @@ exports.getawardsReceived = function(req, res) {
       console.log(reject);
     });
 };
+exports.editUser = function(req, res, next) {
+  const email = req.body.email;
+  const password = req.body.password;
+  const first_name = req.body.first_name;
+  const last_name = req.body.last_name;
+  const region_id = req.body.region_id;
+  const admin = req.body.admin;
+  const user_id = req.body.user_id;
+  // TODO - Add checks for other sign up information once user schema is updated from null
+  if (!email || !password) {
+    return res
+      .status(422)
+      .send({ error: "You must provide email and password." });
+  }
+  // Confirm if a user with the given email exists
+  User.findByEmail(email).then(user => {
+    // If a user with email does exist, return an error
+    if (user.length === 1) {
+      return res.status(422).send({ error: "Email is in use" });
+    }
+    console.log("here in the edit function", user_id);
+    // If a user with email does not exist, create and save user record
+    // User.create(email, password)
+    Business.editUser(
+      first_name,
+      last_name,
+      region_id,
+      email,
+      password,
+      admin,
+      user_id
+    ).then(result => {
+      console.log("Result of newUser", result);
+      // Respond to request indicating user was created
+      // TODO: Modify this later since admin is creating the account
+      res.send({ token: tokenForUser(result) });
+      // res.send({});
+    });
+  });
+};
+
 exports.getawardType = function(req, res) {
   const user_id = req.query.user_id;
   console.log("my user id", user_id);
@@ -322,12 +364,24 @@ exports.getawardTotal = function(req, res) {
     });
 };
 */
-exports.deleteawards = function(req, res) {
-  const award_ids = req.body.award_ids;
-  console.log("my award ids", award_ids);
-  Business.deleteAwards(award_ids)
+exports.deleteUsers = function(req, res) {
+  const user_ids = req.body.user_ids;
+  console.log("my award ids", user_ids);
+  Business.deleteUsers(user_ids)
     .then(result => {
       res.send(result);
+    })
+    .catch(reject => {
+      console.log(reject);
+    });
+};
+exports.getUsers = function(req, res) {
+  const user_id = req.query.user_id;
+  console.log("my user id!", user_id);
+  Business.getUsers()
+    .then(result => {
+      res.send(result);
+      console.log("Result of awards", result);
     })
     .catch(reject => {
       console.log(reject);

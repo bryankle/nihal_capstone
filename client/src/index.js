@@ -14,24 +14,26 @@ import Signup from "./containers/Signup";
 import Signout from "./containers/Signout";
 import Feature from "./containers/Feature";
 import AdminFeature from "./containers/AdminPage";
-import AdminTable from './containers/AdminTable';
+import AdminTable from "./containers/AdminTable";
 import CreateUser from "./containers/CreateUser";
 import BusinessInformation from "./containers/BusinessInformation";
 import HomepageHeading from "./containers/Landing";
 import Profile from "./containers/Profile";
 import CreateAward from "./containers/CreateAward";
 import ViewAwards from "./containers/ViewAwards";
-import ChangeName from './containers/ChangeName';
+import ChangeName from "./containers/ChangeName";
 import BusReceived from "./containers/Queries/BusReceived";
 import BusSent from "./containers/Queries/BusSent";
 import BusType from "./containers/Queries/BusType";
 import BusMonth from "./containers/Queries/BusMonth";
 import BusRange from "./containers/Queries/BusRange";
 import BusTotal from "./containers/Queries/BusTotal";
+import ViewUsers from "./containers/Queries/ViewUsers";
+import EditUser from "./containers/Queries/EditUser";
 import ReceiveTest from "./containers/Queries/ReceiveTest";
-import PasswordRecovery from './containers/PasswordRecovery';
-import ChangePassword from './containers/ChangePassword';
-import EditInfo from './containers/EditInfo';
+import PasswordRecovery from "./containers/PasswordRecovery";
+import ChangePassword from "./containers/ChangePassword";
+import EditInfo from "./containers/EditInfo";
 
 const persistConfig = {
   key: "root",
@@ -68,14 +70,16 @@ const routing = (
           <Route path="/bussent" component={BusSent} />
           <Route path="/bustype" component={BusType} />
           <Route path="/busmonth" component={BusMonth} />
+          <Route path="/viewusers" component={ViewUsers} />
+          <Route path="/edituser" component={EditUser} />
           <Route path="/busrange" component={BusRange} />
           <Route path="/bustotal" component={BusTotal} />
           <Route path="/receivetest" component={ReceiveTest} />
-          <Route path='/changename' component={ChangeName} />
-          <Route path='/passwordrecovery' component={PasswordRecovery} />
-          <Route path='/changepassword' component={ChangePassword} />
-          <Route path='/editinfo' component={EditInfo} />
-          <Route path='/admin-table' component={AdminTable} />     
+          <Route path="/changename" component={ChangeName} />
+          <Route path="/passwordrecovery" component={PasswordRecovery} />
+          <Route path="/changepassword" component={ChangePassword} />
+          <Route path="/editinfo" component={EditInfo} />
+          <Route path="/admin-table" component={AdminTable} />
         </Homepage>
       </Router>
     </PersistGate>

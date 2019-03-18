@@ -1,4 +1,5 @@
 const mysql = require("../dbcon");
+const bcrypt = require("bcrypt-nodejs");
 
 module.exports = {
   getEmployees: function() {
@@ -102,7 +103,7 @@ module.exports = {
       );
     });
   },
-
+  //getAwardTotal--returns all award winners grouped by recipient and sorted by number of awards
   getAwardTotal: function(user_id) {
     return new Promise(function(resolve, reject) {
       const params = [user_id];
@@ -119,6 +120,7 @@ module.exports = {
       );
     });
   },
+  //getAwardTotalSent--returns award sender groubed by nam and sorted by number of awards sent
   getAwardTotalSent: function(user_id) {
     return new Promise(function(resolve, reject) {
       const params = [user_id];
@@ -149,11 +151,79 @@ module.exports = {
       );
     });
   },
-  deleteAwards: function(award_ids) {
+  getUsers: function() {
+    return new Promise(function(resolve, reject) {
+      //const params
+      mysql.pool.query(
+        `SELECT user.user_id, CONCAT(user.first_name, ' ', user.last_name) as name, user.email, user.admin FROM user
+           
+            ORDER BY user.user_id DESC`,
+
+        function(err, data) {
+          if (err) reject(err);
+          resolve(data);
+        }
+      );
+    });
+  },
+  editUser: function(
+    first_name,
+    last_name,
+    region_id,
+    email,
+    password,
+    admin,
+    user_id
+  ) {
+    return new Promise(function(resolve, reject) {
+      bcrypt.genSalt(10, function(err, salt) {
+        let hashedPassword = "";
+        if (err) reject(err);
+        bcrypt.hash(password, salt, null, function(err, hash) {
+          if (err) reject(err);
+          hashedPassword = hash;
+          const params = [first_name, last_name];
+          // const created_on = todaydate();
+          //var created_on = today.hhgetDate();
+          // console.log(created_on);
+          console.log(first_name + last_name + region_id);
+          mysql.pool.query(
+            "SELECT * FROM `user` WHERE user_id=?",
+            [user_id],
+            function(err, result) {
+              if (err) {
+                return;
+              }
+
+              var curVals = result[0];
+              mysql.pool.query(
+                "UPDATE `user` SET first_name=?, last_name=?, region_id=?, email=?, password=?, admin=? WHERE user_id=? ",
+                [
+                  first_name || curVals.first_name,
+                  last_name || curVals.last_name,
+                  region_id || curVals.region_id,
+                  email || curVals.email,
+                  password || curVals.password,
+                  admin || curVals.admin,
+                  user_id
+                ],
+                function(err, data) {
+                  if (err) reject(err);
+                  resolve(data);
+                }
+              );
+            }
+          );
+        });
+      });
+    });
+  },
+
+  deleteUsers: function(award_ids) {
     return new Promise(function(resolve, reject) {
       const params = [award_ids];
       mysql.pool.query(
-        `DELETE FROM award WHERE award_id IN (?)`,
+        `DELETE FROM user WHERE user_id IN (?)`,
         params,
         function(err, data) {
           if (err) reject(err);

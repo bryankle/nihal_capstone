@@ -55,6 +55,26 @@ class Navbar extends Component {
                 Business Information
               </Button>
             </Link>
+            <Link to="/viewusers">
+              <Button
+                as="a"
+                inverted={!true}
+                color="teal"
+                style={{ marginLeft: "0.5em" }}
+              >
+                User Delete
+              </Button>
+            </Link>
+            <Link to="/edituser">
+              <Button
+                as="a"
+                inverted={!true}
+                color="teal"
+                style={{ marginLeft: "0.5em" }}
+              >
+                Edit User
+              </Button>
+            </Link>
             <Link to="/signout">
               <Button
                 as="a"

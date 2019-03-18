@@ -55,14 +55,14 @@ class CreateAward extends Component {
         this.setState({
             user_id: this.props.user_id
         })
-        this.props.getSignature(this.props.user_id)
-          .then(response => {
-              let sig = response.data
-              if (sig[0].signature_path != null) {
-                this.setState({ hasSignature: true });
-              }
-          })
-          .catch(error => console.log(error.response));
+        // this.props.getSignature(this.props.user_id)
+        //   .then(response => {
+        //       let sig = response.data
+        //       if (sig[0].signature_path != null) {
+        //         this.setState({ hasSignature: true });
+        //       }
+        //   })
+        //   .catch(error => console.log(error.response));
         this.props.getRecipients()
           .then(response => {
             console.log("response says", response);

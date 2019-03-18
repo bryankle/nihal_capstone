@@ -45,10 +45,10 @@ read: function(srcPath) {
 					SENDER: certInfo.sender,
 					DATE_AWARDED: certInfo.date,
 					// The following two fields need absolute paths since it will be hardcoded into the temp latex file
-					SIGNATURE: sig_path + certInfo.signature,
-					BACKGROUND_IMG: bg_path + 'bg.png'	
+					SIGNATURE: sig_path + certInfo.signature
+					//BACKGROUND_IMG: bg_path + 'bg.png'	
 				};
-				results = data.replace(/TYPE_AWARD|RECIPIENT|SENDER|DATE_AWARDED|SIGNATURE|BACKGROUND_IMG/gi, (matched) =>{
+				results = data.replace(/TYPE_AWARD|RECIPIENT|SENDER|DATE_AWARDED|SIGNATURE/gi, (matched) =>{
 					return certFill[matched];
 				});
                 resolve(results);

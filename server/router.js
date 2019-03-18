@@ -11,10 +11,12 @@ module.exports = function(app) {
   app.post("/signup", Authentication.signup);
   app.get("/employee", Authentication.getEmployee);
   app.post("/createaward", Award.createaward);
+  app.post("/edituser", Business.editUser);
   app.get("/getemployees", Award.getemployees);
   app.get("/getawards", Award.getawards);
   app.get("/getsignature", Award.getsignature);
   app.delete("/deleteawards", Award.deleteawards);
+  app.delete("/deleteusers", Business.deleteUsers);
   app.get("/getawardssent", Business.getawardsSent);
   app.get("/getawardsReceived", Business.getawardsReceived);
   app.get("/getawardType", Business.getawardType);
@@ -22,6 +24,7 @@ module.exports = function(app) {
   app.get("/getawardrange", Business.getawardRange);
   app.get("/getawardtotal", Business.getawardTotal);
   app.get("/getawardtotalsent", Business.getawardTotalSent);
+  app.get("/getusers", Business.getUsers);
   app.get("/getawardregion", Business.getawardRegion);
   app.get("/getallawards", Award.getallawards);
   app.get("/getfullname", Authentication.getfullname);
